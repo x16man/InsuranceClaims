@@ -1,0 +1,19 @@
+Select A.*,B.Name As CustomerName,B.Address
+From 
+(Select A.*,B.Code,B.CustomerId
+From
+(Select A.*,B.ClaimNo,B.ClaimDate,B.InsuranceId
+From
+(Select A.ClaimId,A.PersonId,A.PersonName,A.InsuranceTypeId,A.InsuranceTypeName,
+       B.Id,B.SequenceNo,B.InvoiceCount,B.ResponsibilityAmount,B.ClaimAmount,B.Remark
+From
+	(Select A.*,B.Id As InsuranceTypeId,B.Name AS InsuranceTypeName
+	From  (Select Distinct ClaimId,PersonId,Name As PersonName From ClaimDetails Where ClaimId = ?) As A,InsuranceType B) As A
+Left Join ClaimDetails B 
+On 	A.ClaimId = B.ClaimId And
+	A.PersonId = B.PersonId And
+	A.InsuranceTypeId = B.InsuranceTypeId) As A Inner Join Claims B 
+ON	A.ClaimId = B.Id) As A Inner Join Insurances B
+On 	A.InsuranceId = B.Id) As A Inner Join Customers B
+On A.CustomerId = B.Id
+

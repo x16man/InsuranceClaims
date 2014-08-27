@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69C0C1C9-92BB-49B4-A72F-B81B269E2B74}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InsuranceClaims</RootNamespace>
+    <AssemblyName>InsuranceClaims</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Shmzh.Components.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=67191c9e5456fa33, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\TFS\公共库\Reference\Shmzh.Components.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppCode\GlobleVariables.cs" />
+    <Compile Include="AppCode\KeyValuePair.cs" />
+    <Compile Include="AppData\InsuranceClaimsDataSet.cs">
+      <DependentUpon>InsuranceClaimsDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AppData\InsuranceClaimsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InsuranceClaimsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClaim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClaim.designer.cs">
+      <DependentUpon>FormClaim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomer.designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsurance.designer.cs">
+      <DependentUpon>FormInsurance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsuranceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsuranceType.Designer.cs">
+      <DependentUpon>FormInsuranceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClaim.resx">
+      <DependentUpon>FormClaim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsurance.resx">
+      <DependentUpon>FormInsurance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsuranceType.resx">
+      <DependentUpon>FormInsuranceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report\ClaimDetail.rdlc">
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="AppData\InsuranceClaimsDataSet.xsc">
+      <DependentUpon>InsuranceClaimsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AppData\InsuranceClaimsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InsuranceClaimsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AppData\InsuranceClaimsDataSet.xss">
+      <DependentUpon>InsuranceClaimsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Log4Net.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppData\InsuranceClaims.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConnectionManager.ico" />
+    <Content Include="Logo.ico" />
+    <Content Include="Resources\0203_Textbox_32.png" />
+    <Content Include="Resources\042b_AddCategory_16x16_72.png" />
+    <Content Include="Resources\077_AddFile_16x16_72.png" />
+    <Content Include="Resources\107259_NewContentPage_32x32.png" />
+    <Content Include="Resources\126_Edit_16x16_72.png" />
+    <Content Include="Resources\AddToFavoritesHS.png" />
+    <Content Include="Resources\add_16.png" />
+    <Content Include="Resources\base_business_contacts.png" />
+    <Content Include="Resources\book_32.png" />
+    <Content Include="Resources\Book_angleHS.png" />
+    <Content Include="Resources\Book_openHS.png" />
+    <Content Include="Resources\ChooseColor.png" />
+    <Content Include="Resources\CopyHS.png" />
+    <Content Include="Resources\CutHS.png" />
+    <Content Include="Resources\DataContainer_MoveNextHS.png" />
+    <Content Include="Resources\DeleteHS.png" />
+    <Content Include="Resources\exit.gif" />
+    <Content Include="Resources\FindHS.png" />
+    <Content Include="Resources\Find_VS.png" />
+    <Content Include="Resources\HomeHS.png" />
+    <Content Include="Resources\LayoutSelectRow.png" />
+    <Content Include="Resources\logo.gif" />
+    <Content Include="Resources\NewCardHS.png" />
+    <Content Include="Resources\NewDocumentHS.png" />
+    <Content Include="Resources\OrgChartHS.png" />
+    <Content Include="Resources\Overlay_Share_16.png" />
+    <Content Include="Resources\Overlay_Share_32.png" />
+    <Content Include="Resources\PasteHS.png" />
+    <Content Include="Resources\printer.png" />
+    <Content Include="Resources\Properties.png" />
+    <Content Include="Resources\RadialChartHS.png" />
+    <Content Include="Resources\report.png" />
+    <Content Include="Resources\SaveAllHS.png" />
+    <Content Include="Resources\saveHS.png" />
+    <Content Include="Resources\shape_square.png" />
+    <Content Include="Resources\table.png" />
+    <Content Include="Resources\TextboxHS.png" />
+    <Content Include="Resources\Users.png" />
+    <Content Include="Resources\ViewThumbnailsHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Insurance.Data.AccessClient\Insurance.Data.AccessClient.csproj">
+      <Project>{C643AB97-3676-4EA7-9E76-40DD4F772C64}</Project>
+      <Name>Insurance.Data.AccessClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Insurance.Data\Insurance.Data.csproj">
+      <Project>{53CEAD52-F9C4-49EB-8736-23E002D94DEF}</Project>
+      <Name>Insurance.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
