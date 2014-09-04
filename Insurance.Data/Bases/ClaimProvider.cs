@@ -3,7 +3,7 @@ using Insurance.Data.Model;
 
 namespace Insurance.Data.Bases
 {
-    public abstract class ClaimProvider:IDAL.IClaims
+    public abstract class ClaimProvider:IDAL.IClaim
     {
         #region Implementation of IClaims
 

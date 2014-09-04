@@ -57,6 +57,11 @@
     <Compile Include="AccessInsuranceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AccessInsuranceTypeProvider.cs" />
+    <Compile Include="AccessBankProvider.cs" />
+    <Compile Include="AccessHospitalProvider.cs" />
+    <Compile Include="AccessStaffProvider.cs" />
+    <Compile Include="AccessCertTypeProvider.cs" />
+    <Compile Include="AccessClaimTypeProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Insurance.Data\Insurance.Data.csproj">

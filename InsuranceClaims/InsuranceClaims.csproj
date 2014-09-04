@@ -31,8 +31,33 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\TFS\公共库\Reference\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>False</Private>
     </Reference>
@@ -137,6 +162,20 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report\ClaimDetail.rdlc">
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBanks.resx">
+      <DependentUpon>FormBanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHospitals.resx">
+      <DependentUpon>FormHospitals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCertTypes.resx">
+      <DependentUpon>FormCertTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClaimTypes.resx">
+      <DependentUpon>FormClaimTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ClaimDetails.rdlc" />
+    <EmbeddedResource Include="Report\ClaimInsuranceType.rdlc" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -154,7 +193,9 @@
     <None Include="AppData\InsuranceClaimsDataSet.xss">
       <DependentUpon>InsuranceClaimsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Log4Net.config" />
+    <None Include="Log4Net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +204,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="FormBanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBanks.Designer.cs">
+      <DependentUpon>FormBanks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHospitals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHospitals.Designer.cs">
+      <DependentUpon>FormHospitals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCertTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCertTypes.Designer.cs">
+      <DependentUpon>FormCertTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClaimTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClaimTypes.Designer.cs">
+      <DependentUpon>FormClaimTypes.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

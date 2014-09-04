@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Insurance.Data;
 using Insurance.Data.Model;
@@ -23,7 +18,7 @@ namespace InsuranceClaims
             this.listBox_InsuranceType.Items.Clear();
             foreach(var obj in GlobleVariables.InsuranceTypes)
             {
-                this.listBox_InsuranceType.Items.Add(obj.Name);
+                this.listBox_InsuranceType.Items.Add(string.Format("{0}-{1}",obj.Code,obj.Name));
             }
         }
         #endregion
@@ -47,7 +42,7 @@ namespace InsuranceClaims
         private void button_Add_Click(object sender, EventArgs e)
         {
             this.CurrentInsuranceType = null;
-            this.textBox_Name.Text = string.Empty;
+            this.txtCode.Text =this.textBox_Name.Text = string.Empty;
         }
 
         private void button_Edit_Click(object sender, EventArgs e)
@@ -58,9 +53,12 @@ namespace InsuranceClaims
             }
             else
             {
-
-                var obj =GlobleVariables.InsuranceTypes.Find(item=>item.Name== this.listBox_InsuranceType.SelectedItem.ToString());
+                var s = this.listBox_InsuranceType.SelectedItem.ToString().Split("-".ToCharArray());
+                var code = s[0];
+                var name = s[1];
+                var obj =GlobleVariables.InsuranceTypes.Find(item=>item.Name== name && item.Code ==code);
                 this.CurrentInsuranceType = obj;
+                this.txtCode.Text = obj.Code;
                 this.textBox_Name.Text = obj.Name;
 
             }
@@ -74,7 +72,10 @@ namespace InsuranceClaims
             }
             else
             {
-                var obj = GlobleVariables.InsuranceTypes.Find(item=>item.Name == this.listBox_InsuranceType.SelectedItem.ToString());
+                var s = this.listBox_InsuranceType.SelectedItem.ToString().Split("-".ToCharArray());
+                var code = s[0];
+                var name = s[1];
+                var obj = GlobleVariables.InsuranceTypes.Find(item => item.Name == name && item.Code == code);
 
                 if(DataRepository.InsuranceTypeProvider.Delete(obj))
                 {
@@ -87,50 +88,105 @@ namespace InsuranceClaims
                 }
             }
         }
+        private void Insert(InsuranceTypeInfo obj)
+        {
+            if (DataRepository.InsuranceTypeProvider.Insert(obj) > 0)
+            {
+                GlobleVariables.InsuranceTypes.Add(obj);
+                this.CurrentInsuranceType = null;
+                this.textBox_Name.Text = string.Empty;
+                this.txtCode.Text = string.Empty;
 
+                this.BindInsuranceTypeList();
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
+        }
+        private void Update(InsuranceTypeInfo obj)
+        {
+            if (DataRepository.InsuranceTypeProvider.Update(obj))
+            {
+                this.CurrentInsuranceType = null;
+                this.textBox_Name.Text = string.Empty;
+                this.txtCode.Text = string.Empty;
+
+                this.BindInsuranceTypeList();
+            }
+            else
+            {
+                MessageBox.Show("保存失败！");
+            }
+        }
         private void button_Save_Click(object sender, EventArgs e)
         {
             if (this.CurrentInsuranceType == null)
             {
                 var obj = new InsuranceTypeInfo();
                 obj.Name = this.textBox_Name.Text.Trim();
-                if(GlobleVariables.InsuranceTypes.Exists(item=>item.Name == this.textBox_Name.Text.Trim()))
-                {
-                    MessageBox.Show("已经存在该名称的险种！");
-                    return;
-                }
-                if (DataRepository.InsuranceTypeProvider.Insert(obj) > 0)
-                {
-                    GlobleVariables.InsuranceTypes.Add(obj);
-                    this.CurrentInsuranceType = null;
-                    this.textBox_Name.Text = string.Empty;
-                    
+                obj.Code = this.txtCode.Text.Trim();
 
-                    this.BindInsuranceTypeList();
+                var a = GlobleVariables.InsuranceTypes.Find(item => item.Code == obj.Code);
+                var b = GlobleVariables.InsuranceTypes.Find(item => item.Name == obj.Name);
+                if (a == null && b== null)
+                {
+                    this.Insert(obj);
                 }
                 else
                 {
-                    MessageBox.Show("保存失败！");
+                    MessageBox.Show("已经存在该代码或名称的责任险种！");
                 }
             }
             else
             {
-                if (GlobleVariables.InsuranceTypes.Exists(item => item.Name == this.textBox_Name.Text.Trim()))
-                {
-                    MessageBox.Show("已经存在该名称的险种！");
-                    return;
-                }
+                this.CurrentInsuranceType.Code = this.txtCode.Text.Trim();
                 this.CurrentInsuranceType.Name = this.textBox_Name.Text.Trim();
-                if (DataRepository.InsuranceTypeProvider.Update(this.CurrentInsuranceType))
+
+                var a = GlobleVariables.InsuranceTypes.Find(item => item.Code == this.CurrentInsuranceType.Code);
+                var b = GlobleVariables.InsuranceTypes.Find(item => item.Name == this.CurrentInsuranceType.Name);
+
+                if (a == null && b == null)
                 {
-                    this.CurrentInsuranceType = null;
-                    this.textBox_Name.Text = string.Empty;
-                    this.BindInsuranceTypeList();
+                    this.Update(this.CurrentInsuranceType);
                 }
-                else
+                else if(a==null && b!= null)
                 {
-                    MessageBox.Show("保存失败！");
+                    if (b.Id == this.CurrentInsuranceType.Id)
+                    {
+                        this.Update(this.CurrentInsuranceType);
+                    }
+                    else
+                    {
+                        MessageBox.Show("已经存在该名称的责任险种!");
+                    }
                 }
+                else if (a != null && b == null)
+                {
+                    if (a.Id == this.CurrentInsuranceType.Id)
+                    {
+                        this.Update(this.CurrentInsuranceType);
+                    }
+                    else
+                    {
+                        MessageBox.Show("已经存在该代码的责任险种!");
+                        
+                    }
+                }
+                else if (a != null && b != null)
+                {
+                    if (a.Id == this.CurrentInsuranceType.Id && b.Id == this.CurrentInsuranceType.Id)
+                    {
+                        this.Update();
+                    }
+                    else
+                    {
+                        MessageBox.Show("已经存在该代码或名称的责任险种!");
+                    }
+                }
+                
+                
+                
             }
         }
     }

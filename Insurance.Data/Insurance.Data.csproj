@@ -46,23 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bases\BankProvider.cs" />
     <Compile Include="Bases\ClaimDetailProvider.cs" />
     <Compile Include="Bases\ClaimProvider.cs" />
     <Compile Include="Bases\CustomerProvider.cs" />
     <Compile Include="Bases\DataProvider.cs" />
+    <Compile Include="Bases\HospitalProvider.cs" />
     <Compile Include="Bases\InsuranceProvider.cs" />
     <Compile Include="Bases\InsuranceTypeProvider.cs" />
+    <Compile Include="Bases\StaffProvider.cs" />
+    <Compile Include="Bases\CertTypeProvider.cs" />
+    <Compile Include="Bases\ClaimTypeProvider.cs" />
     <Compile Include="DataRepository.cs" />
-    <Compile Include="IDAL\IClaimDetails.cs" />
-    <Compile Include="IDAL\IClaims.cs" />
-    <Compile Include="IDAL\ICustomers.cs" />
-    <Compile Include="IDAL\IInsurances.cs" />
+    <Compile Include="IDAL\IBank.cs" />
+    <Compile Include="IDAL\IClaimDetail.cs" />
+    <Compile Include="IDAL\IClaim.cs" />
+    <Compile Include="IDAL\ICustomer.cs" />
+    <Compile Include="IDAL\IInsurance.cs" />
     <Compile Include="IDAL\IInsuranceType.cs" />
+    <Compile Include="IDAL\IHospital.cs" />
+    <Compile Include="IDAL\IStaff.cs" />
+    <Compile Include="IDAL\ICertType.cs" />
+    <Compile Include="IDAL\IClaimType.cs" />
+    <Compile Include="Model\BankInfo.cs" />
     <Compile Include="Model\ClaimDetailInfo.cs" />
     <Compile Include="Model\ClaimInfo.cs" />
     <Compile Include="Model\CustomerInfo.cs" />
+    <Compile Include="Model\HospitalInfo.cs" />
     <Compile Include="Model\InsuranceInfo.cs" />
     <Compile Include="Model\InsuranceTypeInfo.cs" />
+    <Compile Include="Model\StaffInfo.cs" />
+    <Compile Include="Model\CertTypeInfo.cs" />
+    <Compile Include="Model\ClaimTypeInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

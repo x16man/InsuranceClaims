@@ -1,0 +1,9 @@
+D:\GIT\InsuranceClaims\Insurance.Data\bin\Debug\Insurance.Data.dll
+D:\GIT\InsuranceClaims\Insurance.Data\bin\Debug\Insurance.Data.pdb
+D:\GIT\InsuranceClaims\Insurance.Data\bin\Debug\Shmzh.Components.SystemComponent.dll
+D:\GIT\InsuranceClaims\Insurance.Data\bin\Debug\Shmzh.Components.Util.dll
+D:\GIT\InsuranceClaims\Insurance.Data\bin\Debug\log4net.dll
+D:\GIT\InsuranceClaims\Insurance.Data\bin\Debug\log4net.xml
+D:\GIT\InsuranceClaims\Insurance.Data\obj\Debug\ResolveAssemblyReference.cache
+D:\GIT\InsuranceClaims\Insurance.Data\obj\Debug\Insurance.Data.dll
+D:\GIT\InsuranceClaims\Insurance.Data\obj\Debug\Insurance.Data.pdb

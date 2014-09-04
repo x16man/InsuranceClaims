@@ -36,12 +36,14 @@
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Close = new System.Windows.Forms.Button();
             this.button_Save = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label_Name
             // 
             this.label_Name.AutoSize = true;
-            this.label_Name.Location = new System.Drawing.Point(16, 15);
+            this.label_Name.Location = new System.Drawing.Point(16, 48);
             this.label_Name.Name = "label_Name";
             this.label_Name.Size = new System.Drawing.Size(41, 12);
             this.label_Name.TabIndex = 1;
@@ -49,7 +51,7 @@
             // 
             // textBox_Name
             // 
-            this.textBox_Name.Location = new System.Drawing.Point(63, 12);
+            this.textBox_Name.Location = new System.Drawing.Point(63, 45);
             this.textBox_Name.MaxLength = 50;
             this.textBox_Name.Name = "textBox_Name";
             this.textBox_Name.Size = new System.Drawing.Size(221, 21);
@@ -59,9 +61,9 @@
             // 
             this.listBox_InsuranceType.FormattingEnabled = true;
             this.listBox_InsuranceType.ItemHeight = 12;
-            this.listBox_InsuranceType.Location = new System.Drawing.Point(63, 39);
+            this.listBox_InsuranceType.Location = new System.Drawing.Point(63, 75);
             this.listBox_InsuranceType.Name = "listBox_InsuranceType";
-            this.listBox_InsuranceType.Size = new System.Drawing.Size(220, 220);
+            this.listBox_InsuranceType.Size = new System.Drawing.Size(220, 184);
             this.listBox_InsuranceType.TabIndex = 4;
             // 
             // button_Add
@@ -114,11 +116,30 @@
             this.button_Save.UseVisualStyleBackColor = true;
             this.button_Save.Click += new System.EventHandler(this.button_Save_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "代码：";
+            // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(62, 15);
+            this.txtCode.MaxLength = 50;
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(221, 21);
+            this.txtCode.TabIndex = 11;
+            // 
             // FormInsuranceType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 269);
+            this.Controls.Add(this.txtCode);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button_Save);
             this.Controls.Add(this.button_Close);
             this.Controls.Add(this.button_Delete);
@@ -131,7 +152,7 @@
             this.Name = "FormInsuranceType";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "险种";
+            this.Text = "责任险种";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +168,7 @@
         private System.Windows.Forms.Button button_Delete;
         private System.Windows.Forms.Button button_Close;
         private System.Windows.Forms.Button button_Save;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCode;
     }
 }

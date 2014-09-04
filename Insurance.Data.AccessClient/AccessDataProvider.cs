@@ -12,11 +12,16 @@ namespace Insurance.Data.AccessClient
     public sealed partial class AccessDataProvider
     {
         #region Field
-        private AccessCustomerProvider innerAccessCustomerProvider;
-        private AccessInsuranceProvider innerAccessInsuranceProvider;
-        private AccessInsuranceTypeProvider innerAccessInsuranceTypeProvider;
-        private AccessClaimProvider innerAccessClaimProvider;
-        private AccessClaimDetailProvider innerAccessClaimDetailProvider;
+        private volatile AccessCustomerProvider innerAccessCustomerProvider;
+        private volatile AccessInsuranceProvider innerAccessInsuranceProvider;
+        private volatile AccessInsuranceTypeProvider innerAccessInsuranceTypeProvider;
+        private volatile AccessClaimProvider innerAccessClaimProvider;
+        private volatile AccessClaimDetailProvider innerAccessClaimDetailProvider;
+        private volatile AccessBankProvider innerAccessBankProvider;
+        private volatile AccessHospitalProvider innerAccessHospitalProvider;
+        private volatile AccessStaffProvider innerAccessStaffProvider;
+        private volatile AccessCertTypeProvider innerAccessCertTypeProvider;
+        private volatile AccessClaimTypeProvider innerAccessClaimTypeProvider;
         #endregion
 
         #region Property
@@ -128,6 +133,95 @@ namespace Insurance.Data.AccessClient
                     }
                 }
                 return innerAccessClaimDetailProvider;
+            }
+        }
+
+        public override BankProvider BankProvider
+        {
+            get
+            {
+                if (innerAccessBankProvider == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (innerAccessBankProvider == null)
+                        {
+                            innerAccessBankProvider = new AccessBankProvider(_connectionString,_providerInvariantName);
+                        }
+                    }
+                }
+                return innerAccessBankProvider;
+            }
+        }
+
+        public override HospitalProvider HospitalProvider
+        {
+            get
+            {
+                if (innerAccessHospitalProvider == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (innerAccessHospitalProvider == null)
+                        {
+                            innerAccessHospitalProvider = new AccessHospitalProvider(_connectionString, _providerInvariantName);
+                        }
+                    }
+                }
+                return innerAccessHospitalProvider;
+            }
+        }
+
+        public override StaffProvider StaffProvider
+        {
+            get
+            {
+                if (innerAccessStaffProvider == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (innerAccessStaffProvider == null)
+                        {
+                            innerAccessStaffProvider = new AccessStaffProvider(_connectionString,_providerInvariantName);
+                        }
+                    }
+                }
+                return innerAccessStaffProvider;
+            }
+        }
+
+        public override CertTypeProvider CertTypeProvider
+        {
+            get
+            {
+                if (innerAccessCertTypeProvider == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (innerAccessCertTypeProvider == null)
+                        {
+                            innerAccessCertTypeProvider = new AccessCertTypeProvider(_connectionString,_providerInvariantName);
+                        }
+                    }
+                }
+                return innerAccessCertTypeProvider;
+            }
+        }
+        public override ClaimTypeProvider ClaimTypeProvider
+        {
+            get
+            {
+                if (innerAccessClaimTypeProvider == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (innerAccessClaimTypeProvider == null)
+                        {
+                            innerAccessClaimTypeProvider = new AccessClaimTypeProvider(_connectionString,_providerInvariantName);
+                        }
+                    }
+                }
+                return innerAccessClaimTypeProvider;
             }
         }
         #endregion

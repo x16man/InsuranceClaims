@@ -11,6 +11,8 @@ namespace Insurance.Data.Model
         [Bindable(BindableSupport.Yes)]
         public long Id { get; set; }
 
+        [Bindable(BindableSupport.Yes)]
+        public string Code { get; set; }
         /// <summary>
         /// 险种名称。
         /// </summary>

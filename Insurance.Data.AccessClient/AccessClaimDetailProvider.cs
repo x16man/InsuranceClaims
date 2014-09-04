@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.OleDb;
 using System.Collections.Generic;
 using Shmzh.Components.SystemComponent;
@@ -60,30 +59,7 @@ namespace Insurance.Data.AccessClient
         #endregion
 
         #region private method
-        /// <summary>
-        /// 将dr转变到保险理赔单明细记录实体。
-        /// </summary>
-        /// <param name="dr"></param>
-        /// <returns>保险理赔单明细记录实体。</returns>
-        private static ClaimDetailInfo ConvertToClaimDetailInfo(IDataRecord dr)
-        {
-            var obj = new ClaimDetailInfo();
-            obj.Id = long.Parse(dr["Id"].ToString());
-            obj.ClaimId = long.Parse(dr["ClaimId"].ToString());
-            obj.SequenceNo = long.Parse(dr["SequenceNo"].ToString());
-            obj.PersonId = dr["PersonId"] == DBNull.Value ? string.Empty : dr["PersonId"].ToString();
-            obj.HRID = dr["HRID"] == DBNull.Value ? string.Empty : dr["HRID"].ToString();
-            obj.Name = dr["Name"].ToString();
-            obj.RelatedPerson = dr["RelatedPerson"] == DBNull.Value ? string.Empty : dr["RelatedPerson"].ToString();
-            obj.InvoiceCount = dr["InvoiceCount"] == DBNull.Value ? 0 : long.Parse(dr["InvoiceCount"].ToString());
-            obj.InsuranceTypeId = long.Parse(dr["InsuranceTypeId"].ToString());
-            obj.InsuranceTypeName = dr["InsuranceTypeName"].ToString();
-            obj.ResponsibilityAmount = decimal.Parse(dr["ResponsibilityAmount"].ToString());
-            obj.ClaimAmount = decimal.Parse(dr["ClaimAmount"].ToString());
-            obj.Remark = dr["Remark"] == DBNull.Value ? string.Empty : dr["Remark"].ToString();
-
-            return obj;
-        }
+        
 
         /// <summary>
         /// 获取新插入记录的Id。
@@ -105,21 +81,90 @@ namespace Insurance.Data.AccessClient
         /// <returns>保险理赔单明细记录Id。</returns>
         public override long Insert(ClaimDetailInfo obj)
         {
-            var sqlStatement = @"Insert Into ClaimDetails ([ClaimId],[SequenceNo],[PersonId],[HRID],[Name],[RelatedPerson],[InvoiceCount],[InsuranceTypeId],[ResponsibilityAmount],[ClaimAmount],[Remark]) 
-                                 Values (@ClaimId,@SequenceNo,@Personid,@HRID,@Name,@RelatedPerson,@InvoiceCount,@InsuranceTypeId,@ResponsibilityAmount,@ClaimAmount,@Remark)";
+            var sqlStatement = @"
+Insert Into ClaimDetails (
+    [ClaimId]
+,   [SequenceNo]
+,   [CertType]
+,   [PersonId]
+,   [Name]
+,   [Gender]
+,   [InsuranceTypeCode]
+,   [ClaimTypeId]
+,   OccurDate
+,   AccountName
+,   Account
+,   BankId
+,   InvoiceNo
+,   [InvoiceCount]
+,   HospitalId
+,   [ResponsibilityAmount]
+,   QZFAmount
+,   BFZFAmount
+,   QTKCAmount
+,   YBZFAmount
+,   DSFZFAmount
+,   MPEAmount
+,   PFRate
+,   [ClaimAmount]
+,   [Remark]
+,   ClaimNo) 
+Values (
+    @ClaimId
+,   @SequenceNo
+,   @CertType
+,   @Personid
+,   @Name
+,   @Gender
+,   @InsuranceTypeCode
+,   @ClaimTypeId
+,   @OccurDate
+,   @AccountName
+,   @Account
+,   @BankId
+,   @InvoiceNo
+,   @InvoiceCount
+,   @HospitalId
+,   @ResponsibilityAmount
+,   @QZFAmount
+,   @BFZFAmount
+,   @QTKCAmount
+,   @YBZFAmount
+,   @DSFZFAmount
+,   @MPEAmount
+,   @PFRate
+,   @ClaimAmount
+,   @Remark
+,   @ClaimNo
+)";
             var parms = new[]
                             {
                                 new OleDbParameter("@ClaimId", OleDbType.BigInt) {Value = obj.ClaimId},
                                 new OleDbParameter("@SequenceNo", OleDbType.BigInt) {Value = obj.SequenceNo},
+                                new OleDbParameter("@CertType",OleDbType.VarChar,10){Value = obj.CertType}, 
                                 new OleDbParameter("@PersonId",OleDbType.VarWChar,50){Value = obj.PersonId}, 
-                                new OleDbParameter("@HRID",OleDbType.VarWChar,50){Value = string.IsNullOrEmpty(obj.HRID)?DBNull.Value:(object)obj.HRID}, 
                                 new OleDbParameter("@Name",OleDbType.VarWChar,50){Value = obj.Name},
-                                new OleDbParameter("@RelatedPerson",OleDbType.VarWChar,50){Value = string.IsNullOrEmpty(obj.RelatedPerson)?DBNull.Value:(object)obj.RelatedPerson}, 
+                                new OleDbParameter("@Gender",OleDbType.Boolean){Value = obj.Gender}, 
+                                new OleDbParameter("@InsuranceTypeCode",OleDbType.VarChar,10){Value = obj.InsuranceTypeCode}, 
+                                new OleDbParameter("@ClaimTypeId",OleDbType.VarChar,10){Value = obj.ClaimTypeId}, 
+                                new OleDbParameter("@OccurDate",OleDbType.Date){Value = obj.OccurDate==DateTime.MinValue?DBNull.Value:(object)obj.OccurDate},
+                                new OleDbParameter("@AccountName",OleDbType.VarChar,50){Value = obj.AccountName},
+                                new OleDbParameter("@Account",OleDbType.VarChar,50){Value = obj.Account},
+                                new OleDbParameter("@BankId",OleDbType.VarChar,10){Value = obj.BankId},
+                                new OleDbParameter("@InvoiceNo",OleDbType.VarChar,50){Value = obj.InvoiceNo}, 
                                 new OleDbParameter("@InvoiceCount",OleDbType.BigInt){Value = obj.InvoiceCount},
-                                new OleDbParameter("@InsuranceTypeId",OleDbType.BigInt){Value = obj.InsuranceTypeId}, 
+                                new OleDbParameter("@HospitalId",OleDbType.VarChar,10){Value = obj.HospitalId},
                                 new OleDbParameter("@ResponsibilityAmount",OleDbType.Decimal){Value = obj.ResponsibilityAmount},
+                                new OleDbParameter("@QZFAmount",OleDbType.Decimal){Value = obj.QZFAmount},
+                                new OleDbParameter("@BFZFAmount",OleDbType.Decimal){Value = obj.BFZFAmount},
+                                new OleDbParameter("@QTKCAmount",OleDbType.Decimal){Value = obj.QTKCAmount},
+                                new OleDbParameter("@YBZFAmount",OleDbType.Decimal){Value = obj.YBZFAmount},
+                                new OleDbParameter("@DSFZFAmount",OleDbType.Decimal){Value = obj.DSFZFAmount},
+                                new OleDbParameter("@MPEAmount",OleDbType.Decimal){Value = obj.MPEAmount},
+                                new OleDbParameter("@PFRate",OleDbType.Numeric){Value = obj.PFRate}, 
                                 new OleDbParameter("@ClaimAmount",OleDbType.Decimal){Value = obj.ClaimAmount},
                                 new OleDbParameter("@Remark",OleDbType.VarWChar,255){Value = string.IsNullOrEmpty(obj.Remark)?DBNull.Value:(object)obj.Remark},
+                                new OleDbParameter("@ClaimNo",OleDbType.VarChar,50){Value = obj.ClaimNo} 
                             };
             using (var conn = new OleDbConnection(this.ConnectionString))
             {
@@ -153,33 +198,63 @@ namespace Insurance.Data.AccessClient
         /// <returns>bool</returns>
         public override bool Update(ClaimDetailInfo obj)
         {
-            var sqlStatement = @"Update ClaimDetails 
-                                Set [ClaimId] = @ClaimId
-                                ,   [SequenceNo]=@SequenceNo
-                                ,   [PersonId]=@PersonId
-                                ,   [HRID] = @HRID
-                                ,   [Name]=@Name
-                                ,   [RelatedPerson] = @RelatedPerson
-                                ,   [InvoiceCount] = @InvoiceCount
-                                ,   [InsuranceTypeId] = @InsuranceTypeId
-                                ,   [ResponsibilityAmount]=@ResponsibilityAmount
-                                ,   [ClaimAmount]=@ClaimAmount
-                                ,   [Remark]=@Remark 
-                                Where Id = @Id";
+        var sqlStatement = @"
+Update ClaimDetails 
+Set [ClaimId] = @ClaimId
+,   [SequenceNo]=@SequenceNo
+,   [CertType]=@CertType
+,   [PersonId]=@PersonId
+,   [Name]=@Name
+,   [Gender] = @Gender
+,   [InsuranceTypeCode] = @InsuranceTypeCode
+,   [ClaimTypeId] = @ClaimTypeId
+,   [OccurDate] = @Occurdate
+,   [AccountName] = @AccountName
+,   [Account] = @Account
+,   [BankId] = @BankId
+,   [InvoiceNo] = @InvoiceNo
+,   [InvoiceCount] = @InvoiceCount
+,   [HospitalId] = @HospitalId
+,   [ResponsibilityAmount]=@ResponsibilityAmount
+,   [QZFAmount] = @QZFAmount
+,   [BFZFAmount] = @BFZFAmount
+,   [QTKCAmount] = @QTKCAmount
+,   [YBZFAmount] = @YBZFAmount
+,   [DSFZFAmount] = @DSFZFAmount
+,   [MPEAmount] = @MPEAmount
+,   [PFRate] = @PFRate
+,   [ClaimAmount]=@ClaimAmount
+,   [Remark]=@Remark 
+,   [ClaimNo] = @ClaimNo
+Where Id = @Id";
             var parms = new[]
                             {
                                 new OleDbParameter("@ClaimId", OleDbType.BigInt) {Value = obj.ClaimId},
                                 new OleDbParameter("@SequenceNo", OleDbType.BigInt) {Value = obj.SequenceNo},
+                                new OleDbParameter("@CertType",OleDbType.VarChar,10){Value = obj.CertType}, 
                                 new OleDbParameter("@PersonId",OleDbType.VarWChar,50){Value = obj.PersonId}, 
-                                new OleDbParameter("@HRID",OleDbType.VarWChar,50){Value = string.IsNullOrEmpty(obj.HRID)?DBNull.Value:(object)obj.HRID}, 
                                 new OleDbParameter("@Name",OleDbType.VarWChar,50){Value = obj.Name},
-                                new OleDbParameter("@RelatedPerson",OleDbType.VarWChar,50){Value = string.IsNullOrEmpty(obj.RelatedPerson)?DBNull.Value:(object)obj.RelatedPerson}, 
+                                new OleDbParameter("@Gender",OleDbType.Boolean){Value = obj.Gender}, 
+                                new OleDbParameter("@InsuranceTypeCode",OleDbType.VarChar,10){Value = obj.InsuranceTypeCode}, 
+                                new OleDbParameter("@ClaimTypeId",OleDbType.VarChar,10){Value = obj.ClaimTypeId}, 
+                                new OleDbParameter("@OccurDate",OleDbType.Date){Value = obj.OccurDate==DateTime.MinValue?DBNull.Value:(object)obj.OccurDate},
+                                new OleDbParameter("@AccountName",OleDbType.VarChar,50){Value = obj.AccountName},
+                                new OleDbParameter("@Account",OleDbType.VarChar,50){Value = obj.Account},
+                                new OleDbParameter("@BankId",OleDbType.VarChar,10){Value = obj.BankId},
+                                new OleDbParameter("@InvoiceNo",OleDbType.VarChar,50){Value = obj.InvoiceNo}, 
                                 new OleDbParameter("@InvoiceCount",OleDbType.BigInt){Value = obj.InvoiceCount},
-                                new OleDbParameter("@InsuranceTypeId",OleDbType.BigInt){Value = obj.InsuranceTypeId}, 
+                                new OleDbParameter("@HospitalId",OleDbType.VarChar,10){Value = obj.HospitalId},
                                 new OleDbParameter("@ResponsibilityAmount",OleDbType.Decimal){Value = obj.ResponsibilityAmount},
+                                new OleDbParameter("@QZFAmount",OleDbType.Decimal){Value = obj.QZFAmount},
+                                new OleDbParameter("@BFZFAmount",OleDbType.Decimal){Value = obj.BFZFAmount},
+                                new OleDbParameter("@QTKCAmount",OleDbType.Decimal){Value = obj.QTKCAmount},
+                                new OleDbParameter("@YBZFAmount",OleDbType.Decimal){Value = obj.YBZFAmount},
+                                new OleDbParameter("@DSFZFAmount",OleDbType.Decimal){Value = obj.DSFZFAmount},
+                                new OleDbParameter("@MPEAmount",OleDbType.Decimal){Value = obj.MPEAmount},
+                                new OleDbParameter("@PFRate",OleDbType.Numeric){Value = obj.PFRate}, 
                                 new OleDbParameter("@ClaimAmount",OleDbType.Decimal){Value = obj.ClaimAmount},
                                 new OleDbParameter("@Remark",OleDbType.VarWChar,255){Value = string.IsNullOrEmpty(obj.Remark)?DBNull.Value:(object)obj.Remark},
-                                new OleDbParameter("@Id",OleDbType.BigInt){Value = obj.Id}, 
+                                new OleDbParameter("@ClaimNo",OleDbType.VarChar,50){Value = obj.ClaimNo}  
                             };
             try
             {
@@ -213,7 +288,7 @@ namespace Insurance.Data.AccessClient
             var sqlStatement = "Delete From ClaimDetails Where Id = @Id";
             var parms = new[]
                             {
-                                new OleDbParameter("@Id",OleDbType.BigInt){Value = id}, 
+                                new OleDbParameter("@Id",OleDbType.BigInt){Value = id} 
                             };
             try
             {
@@ -233,9 +308,45 @@ namespace Insurance.Data.AccessClient
         /// <returns>保险理赔单明细记录集合。</returns>
         public override List<ClaimDetailInfo> GetAll()
         {
-            var sqlStatement = @"Select A.[Id],A.[ClaimId],A.[SequenceNo],A.[PersonId],A.[HRID],A.[Name],A.[RelatedPerson],A.[InvoiceCount],A.[InsuranceTypeId],B.[Name] As InsuranceTypeName,A.[ResponsibilityAmount],A.[ClaimAmount],A.[Remark] 
-                                From    ClaimDetails A,InsuranceType B 
-                                Where   A.InsuranceTypeId = B.Id";
+            var sqlStatement = @"
+Select  A.[Id]
+,       A.[ClaimId]
+,       A.[SequenceNo]
+,       A.CertType
+,       C.Name AS CertTypeName
+,       A.[PersonId]
+,       A.[Name]
+,       A.[Gender]
+,       A.[InsuranceTypeCode]
+,       B.[Name] As InsuranceTypeName
+,       A.[ClaimTypeId]
+,       F.[Name] As ClaimTypeName
+,       A.OccurDate
+,       A.AccountName
+,       A.Account
+,       A.BankId
+,       D.Name As BankName
+,       A.InvoiceNo
+,       A.[InvoiceCount]
+,       A.HospitalId
+,       E.Name as HospitalName
+,       A.[ResponsibilityAmount]
+,       A.QZFAmount
+,       A.BFZFAmount
+,       A.QTKCAmount
+,       A.YBZFAmount
+,       A.DSFZFAmount
+,       A.MPEAmount
+,       A.PFRate
+,       A.[ClaimAmount]
+,       A.[Remark]
+,       A.ClaimNo 
+From    ClaimDetails A,InsuranceType B,CertTypes C,Banks D,Hospitals E,ClaimTypes F
+Where   A.InsuranceTypeCode = B.Code And
+        A.CertType = C.Id And
+        A.BankId = D.Id And
+        A.HospitalId = E.Id And
+        A.ClaimTypeId = F.Id";
             var objs = new List<ClaimDetailInfo>();
             var dr = AccessHelper.ExecuteReader(this.ConnectionString, sqlStatement);
             while (dr.Read())
@@ -253,10 +364,47 @@ namespace Insurance.Data.AccessClient
         /// <returns>保险理赔单明细记录集合。</returns>
         public override List<ClaimDetailInfo> GetByClaimId(long claimId)
         {
-            var sqlStatement = @"Select A.[Id],A.[ClaimId],A.[SequenceNo],A.[PersonId],A.[HRID],A.[Name],A.[RelatedPerson],A.[InvoiceCount],A.[InsuranceTypeId],B.[Name] As InsuranceTypeName,A.[ResponsibilityAmount],A.[ClaimAmount],A.[Remark] 
-                                From    ClaimDetails A, InsuranceType B
-                                Where   A.ClaimId = @ClaimId And
-                                        A.InsuranceTypeId = B.Id";
+            var sqlStatement = @"
+Select  A.[Id]
+,       A.[ClaimId]
+,       A.[SequenceNo]
+,       A.CertType
+,       C.Name AS CertTypeName
+,       A.[PersonId]
+,       A.[Name]
+,       A.[Gender]
+,       A.[InsuranceTypeCode]
+,       B.[Name] As InsuranceTypeName
+,       A.[ClaimTypeId]
+,       F.[Name] As ClaimTypeName
+
+,       A.OccurDate
+,       A.AccountName
+,       A.Account
+,       A.BankId
+,       D.Name As BankName
+,       A.InvoiceNo
+,       A.[InvoiceCount]
+,       A.HospitalId
+,       E.Name as HospitalName
+,       A.[ResponsibilityAmount]
+,       A.QZFAmount
+,       A.BFZFAmount
+,       A.QTKCAmount
+,       A.YBZFAmount
+,       A.DSFZFAmount
+,       A.MPEAmount
+,       A.PFRate
+,       A.[ClaimAmount]
+,       A.[Remark]
+,       A.ClaimNo 
+From    ClaimDetails A,InsuranceType B,CertTypes C,Banks D,Hospitals E,ClaimTypes F
+Where   A.InsuranceTypeCode = B.Code And
+        A.CertType = C.Id And
+        A.BankId = D.Id And
+        A.HospitalId = E.Id And
+        A.ClaimTypeId = F.Id And
+        A.ClaimId = @ClaimId";
             var parms = new[] {new OleDbParameter("@ClaimId", OleDbType.BigInt) {Value = claimId}};
             var objs = new List<ClaimDetailInfo>();
             var dr = AccessHelper.ExecuteReader(this.ConnectionString, sqlStatement,parms);
@@ -275,11 +423,48 @@ namespace Insurance.Data.AccessClient
         /// <returns>保险理赔单明细记录。</returns>
         public override ClaimDetailInfo GetById(long id)
         {
-            var sqlStatement = @"Select A.[Id],A.[ClaimId],A.[SequenceNo],A.[PersonId],A.[HRID],A.[Name],A.[RelatedPerson],A.[InvoiceCount],A.[InsuranceTypeId],B.[Name] As InsuranceTypeName,A.[ResponsibilityAmount],A.[ClaimAmount],A.[Remark] 
-                                From    ClaimDetails A,InsuranceType B
-                                Where   A.ClaimId = @ClaimId And
-                                        A.InsuranceTypeId = B.Id";
-            var parms = new[] { new OleDbParameter("@ClaimId", OleDbType.BigInt) { Value = id } };
+            var sqlStatement = @"
+Select  A.[Id]
+,       A.[ClaimId]
+,       A.[SequenceNo]
+,       A.CertType
+,       C.Name AS CertTypeName
+,       A.[PersonId]
+,       A.[Name]
+,       A.[Gender]
+,       A.[InsuranceTypeCode]
+,       B.[Name] As InsuranceTypeName
+,       A.[ClaimTypeId]
+,       F.[Name] As ClaimTypeName
+
+,       A.OccurDate
+,       A.AccountName
+,       A.Account
+,       A.BankId
+,       D.Name As BankName
+,       A.InvoiceNo
+,       A.[InvoiceCount]
+,       A.HospitalId
+,       E.Name as HospitalName
+,       A.[ResponsibilityAmount]
+,       A.QZFAmount
+,       A.BFZFAmount
+,       A.QTKCAmount
+,       A.YBZFAmount
+,       A.DSFZFAmount
+,       A.MPEAmount
+,       A.PFRate
+,       A.[ClaimAmount]
+,       A.[Remark]
+,       A.ClaimNo 
+From    ClaimDetails A,InsuranceType B,CertTypes C,Banks D,Hospitals E,ClaimTypes F
+Where   A.InsuranceTypeCode = B.Code And
+        A.CertType = C.Id And
+        A.BankId = D.Id And
+        A.HospitalId = E.Id And
+        A.ClaimTypeId = F.Id
+        A.Id = @Id";
+            var parms = new[] { new OleDbParameter("@Id", OleDbType.BigInt) { Value = id } };
             ClaimDetailInfo obj = null;
             var dr = AccessHelper.ExecuteReader(this.ConnectionString, sqlStatement, parms);
             while (dr.Read())

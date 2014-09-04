@@ -31,5 +31,21 @@ namespace Insurance.Data.Bases
         /// Current InsuranceTypeProvider instance.
         ///</summary>
         public virtual InsuranceTypeProvider InsuranceTypeProvider { get { throw new NotImplementedException(); } }
+        /// <summary>
+        /// Current BankProvider instance.
+        /// </summary>
+        public virtual BankProvider BankProvider{get {throw new NotImplementedException();}}
+        /// <summary>
+        /// Current HospitalProvider instance.
+        /// </summary>
+        public virtual HospitalProvider HospitalProvider{get{throw new NotImplementedException();}}
+        /// <summary>
+        /// Current StaffProvider instance
+        /// </summary>
+        public virtual StaffProvider StaffProvider{get{throw new NotImplementedException();}}
+
+        public virtual CertTypeProvider CertTypeProvider{get{throw new NotImplementedException();}}
+
+        public virtual ClaimTypeProvider ClaimTypeProvider{get{throw new NotImplementedException();}}
     }
 }

@@ -4,3 +4,10 @@
     public partial class InsuranceClaimsDataSet {
     }
 }
+
+namespace InsuranceClaims.AppData.InsuranceClaimsDataSetTableAdapters {
+    
+    
+    public partial class ClaimInsuranceTypeTableAdapter {
+    }
+}

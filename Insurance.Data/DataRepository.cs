@@ -14,10 +14,10 @@ namespace Insurance.Data
     {
         #region Field
         private static object SyncRoot = new object();
-        private static DataProvider _provider = null;
-        private static Shmzh.Components.SystemComponent.ProviderCollection _providers = null;
-        private static volatile Configuration _config = null;
-        private static volatile Section _section = null;
+        private static DataProvider _provider;
+        private static Shmzh.Components.SystemComponent.ProviderCollection _providers;
+        private static volatile Configuration _config;
+        private static volatile Section _section;
 
         #endregion
 
@@ -372,6 +372,51 @@ namespace Insurance.Data
             {
                 LoadProviders();
                 return _provider.ClaimDetailProvider;
+            }
+        }
+
+        public static BankProvider BankProvider
+        {
+            get
+            {
+                LoadProviders();
+                return _provider.BankProvider;
+            }
+        }
+
+        public static HospitalProvider HospitalProvider
+        {
+            get
+            {
+                LoadProviders();
+                return _provider.HospitalProvider;
+            }
+        }
+
+        public static StaffProvider StaffProvider
+        {
+            get
+            {
+                LoadProviders();
+                return _provider.StaffProvider;
+            }
+        }
+        
+        public static CertTypeProvider CertTypeProvider
+        {
+            get
+            {
+                LoadProviders();
+                return _provider.CertTypeProvider;
+            }
+        }
+
+        public static ClaimTypeProvider ClaimTypeProvider
+        {
+            get
+            {
+                LoadProviders();
+                return _provider.ClaimTypeProvider;
             }
         }
         #endregion

@@ -69,6 +69,7 @@ namespace Insurance.Data.AccessClient
         {
             var obj = new InsuranceTypeInfo();
             obj.Id = long.Parse(dr["Id"].ToString());
+            obj.Code = dr["Code"].ToString();
             obj.Name = dr["Name"].ToString();
 
             return obj;
@@ -94,8 +95,12 @@ namespace Insurance.Data.AccessClient
         /// <returns>险种Id。</returns>
         public override long Insert(InsuranceTypeInfo obj)
         {
-            var sqlStatement = "Insert Into InsuranceType ( Name) Values ( @Name)";
-            var parms = new[] { new OleDbParameter("@Name", OleDbType.VarWChar, 50) { Value = obj.Name } };
+            var sqlStatement = "Insert Into InsuranceType ( Code,Name) Values ( @Code,@Name)";
+            var parms = new[]
+                {
+                    new OleDbParameter("@Code",OleDbType.VarChar,10){Value = obj.Code}, 
+                    new OleDbParameter("@Name", OleDbType.VarWChar, 50) { Value = obj.Name }
+                };
             using(var conn = new OleDbConnection(this.ConnectionString))
             {
                 conn.Open();
@@ -129,10 +134,11 @@ namespace Insurance.Data.AccessClient
         {
             var sqlStatement = "Update InsuranceType Set Name = @Name Where Id = @Id";
             var parms = new[]
-                            {
-                                new OleDbParameter("@Name", OleDbType.VarWChar, 50) {Value = obj.Name},
-                                new OleDbParameter("@Id",OleDbType.BigInt){Value = obj.Id},
-                            };
+                {
+                    new OleDbParameter("@Code", OleDbType.VarChar, 10) {Value = obj.Code},
+                    new OleDbParameter("@Name", OleDbType.VarWChar, 50) {Value = obj.Name},
+                    new OleDbParameter("@Id", OleDbType.BigInt) {Value = obj.Id}
+                };
             try
             {
                 AccessHelper.ExecuteNonQuery(this.ConnectionString, sqlStatement, parms);

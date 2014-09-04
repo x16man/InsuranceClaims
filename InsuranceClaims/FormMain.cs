@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Timers;
@@ -17,10 +19,17 @@ namespace InsuranceClaims
     public partial class FormMain : Form
     {
         #region Field
+        private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private System.Timers.Timer DragOverTimer = new System.Timers.Timer();
         private TreeNode DragOverNode;
         private ToolStripTextBox toolStripStatusTextBox_Location;
         #endregion
+
+        #region Property
+        public List<StaffInfo> Staffs { get; set; }
+        public List<ClaimDetailInfo> ClaimDetailInfos { get; set; } 
+        #endregion
+
         #region private method
         private void CreateTree()
         {
@@ -35,6 +44,15 @@ namespace InsuranceClaims
                 node.ImageIndex = 0;
                 node.SelectedImageIndex = 0;
                 this.treeView_CustomerInsurance.Nodes.Add(node);
+
+                var personNode = new TreeNode();
+                personNode.Tag = customer;
+                personNode.Text = "花名册";
+                personNode.ToolTipText = "";
+                personNode.ImageIndex = 15;
+                personNode.SelectedImageIndex = 15;
+                node.Nodes.Add(personNode);
+
                 var objs = GlobleVariables.Insurances.FindAll(item => item.CustomerId == customer.Id);
                 foreach(var obj in objs)
                 {
@@ -64,12 +82,56 @@ namespace InsuranceClaims
                                                               new ColumnHeader(){Text="备注",TextAlign = HorizontalAlignment.Left,DisplayIndex = 5,Name = "Remark",Width = 200,}, 
                                                           });
         }
+        private void InitPersonListView()
+        {
+            this.listView_Claim.View = View.Details;
+            this.listView_Claim.FullRowSelect = true;
+            this.listView_Claim.Columns.Clear();
+            this.listView_Claim.Columns.AddRange(new[]
+                                                          {
+                                                              //new ColumnHeader(){Text ="",TextAlign = HorizontalAlignment.Left,DisplayIndex = 0,Name ="Id",Width = 24,},
+                                                              new ColumnHeader{Text ="姓名",TextAlign = HorizontalAlignment.Left,DisplayIndex = 1,Name ="Name",Width = 200,},
+                                                              new ColumnHeader{Text ="工号",TextAlign = HorizontalAlignment.Left,DisplayIndex = 2,Name ="Code",Width = 200,},
+                                                              new ColumnHeader{Text = "身份证号码",TextAlign = HorizontalAlignment.Left,DisplayIndex = 3,Name ="Id",Width = 120}, 
+                                                              new ColumnHeader{Text ="单位",TextAlign = HorizontalAlignment.Left,DisplayIndex = 4,Name = "Unit",Width = 120,}, 
+                                                              new ColumnHeader{Text = "部门",TextAlign = HorizontalAlignment.Left,DisplayIndex = 5,Name = "Dept",Width = 120,}, 
+                                                          });
+
+        }
+        private void BindPersonList(CustomerInfo customerInfo)
+        {
+            this.toolStripTextBox_SearchContent.ToolTipText = "";
+            this.toolStripButton_Print.Enabled = false;
+            this.toolStripButton_ImportStaff.Enabled = true;
+            this.listView_Claim.Tag = customerInfo;
+            this.label_Title.Text = string.Format("{0} - 员工花名册", customerInfo.Name);
+            this.Staffs = DataRepository.StaffProvider.GetByCustomerId(customerInfo.Id);
+
+            this.BindPersonList(this.Staffs);
+        }
+        private void BindPersonList(List<StaffInfo> objs)
+        {
+            this.listView_Claim.Items.Clear();
+            foreach (var staffInfo in objs)
+            {
+                var item = new ListViewItem(staffInfo.Code, 9);
+                item.Tag = staffInfo;
+
+                item.SubItems.Add(staffInfo.Name);
+                item.SubItems.Add(staffInfo.CertId);
+                item.SubItems.Add(staffInfo.Company);
+                item.SubItems.Add(staffInfo.Department);
+
+                this.listView_Claim.Items.Add(item);
+            }
+        }
         private void BindClaimList(InsuranceInfo insuranceInfo)
         {
             this.label_Title.Text = string.Empty;
 
             this.toolStripTextBox_SearchContent.ToolTipText = "输入理赔单号进行模糊查找";
             this.toolStripButton_Print.Enabled = false;
+            this.toolStripButton_ImportStaff.Enabled = false;
             this.listView_Claim.Items.Clear();
             if(insuranceInfo == null)
             {
@@ -102,6 +164,7 @@ namespace InsuranceClaims
         {
             this.toolStripTextBox_SearchContent.ToolTipText = "输入理赔单号进行模糊查找";
             this.toolStripButton_Print.Enabled = false;
+            this.toolStripButton_ImportStaff.Enabled = false;
 
             this.listView_Claim.Items.Clear();
             if (insuranceInfo == null)
@@ -137,88 +200,332 @@ namespace InsuranceClaims
             this.listView_Claim.FullRowSelect = true;
             this.listView_Claim.Columns.Clear();
             this.listView_Claim.Columns.AddRange(new[]
-                                                          {
-                                                              //new ColumnHeader(){Text ="",TextAlign = HorizontalAlignment.Left,DisplayIndex = 0,Name ="Id",Width = 24,},
-                                                              new ColumnHeader(){Text ="序号",TextAlign = HorizontalAlignment.Left,DisplayIndex = 1,Name ="Customer",Width = 60,},
-                                                              new ColumnHeader(){Text = "工号",TextAlign = HorizontalAlignment.Left,DisplayIndex = 2,Name = "HRID",Width = 60,}, 
-                                                              new ColumnHeader(){Text ="被保险人姓名",TextAlign = HorizontalAlignment.Left,DisplayIndex = 2,Name ="Name",Width = 120,},
-                                                              new ColumnHeader(){Text ="连带信息",TextAlign = HorizontalAlignment.Left,DisplayIndex = 3,Name ="RelatedPerson",Width = 120,},
-                                                              new ColumnHeader(){Text = "身份证号码",TextAlign = HorizontalAlignment.Left,DisplayIndex = 4,Name="PersonId",Width=120,}, 
-                                                              new ColumnHeader(){Text="发票张数",TextAlign = HorizontalAlignment.Center,DisplayIndex = 5,Name = "InvoiceCount",Width = 120,}, 
-                                                              new ColumnHeader(){Text ="责任内金额",TextAlign = HorizontalAlignment.Right,DisplayIndex = 6,Name = "ResponsibilityAmount",Width = 120,}, 
-                                                              new ColumnHeader(){Text="给付金额",TextAlign = HorizontalAlignment.Right,DisplayIndex = 7,Name = "ClaimAmount",Width = 120}, 
-                                                              new ColumnHeader(){Text = "投保险种",TextAlign = HorizontalAlignment.Center,DisplayIndex = 8,Name = "InsuranceTypeName",Width = 120,}, 
-                                                              new ColumnHeader(){Text="备注",TextAlign = HorizontalAlignment.Left,DisplayIndex = 9,Name = "Remark",Width = 200}, 
-                                                          });
+                {
+                    //new ColumnHeader(){Text ="",TextAlign = HorizontalAlignment.Left,DisplayIndex = 0,Name ="Id",Width = 24,},
+                    new ColumnHeader
+                        {
+                            Text = "序号",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 1,
+                            Name = "Customer",
+                            Width = 50,
+                        },
+                    
+                    new ColumnHeader
+                        {
+                            Text = "被保险人姓名",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 2,
+                            Name = "Name",
+                            Width = 80,
+                        },
+                    new ColumnHeader
+                        {
+                            Text = "证件类型",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 3,
+                            Name = "CertTypeName",
+                            Width = 60,
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "证件号码",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 4,
+                            Name = "PersonId",
+                            Width = 120,
+                        },
+                    new ColumnHeader
+                        {
+                            Text = "理赔类型",
+                            TextAlign = HorizontalAlignment.Center,
+                            DisplayIndex = 5,
+                            Name = "InsuranceTypeName",
+                            Width = 60,
+                        },
+                    new ColumnHeader
+                        {
+                            Text = "出险日期",
+                            TextAlign = HorizontalAlignment.Center,
+                            DisplayIndex = 5,
+                            Name = "OccurDate",
+                            Width = 60
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "银行",
+                            Name = "BankName",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 6,
+                            Width = 80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "开户名",
+                            Name = "AccountName",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 7,
+                            Width = 60
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "开户帐号",
+                            Name = "Account",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 7,
+                            Width = 120
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "发票号码",
+                            TextAlign = HorizontalAlignment.Left,
+                            Name = "InvoiceNo",
+                            DisplayIndex = 8,
+                            Width = 100
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "发票张数",
+                            TextAlign = HorizontalAlignment.Center,
+                            DisplayIndex = 9,
+                            Name = "InvoiceCount",
+                            Width = 80,
+                        },
+                    new ColumnHeader
+                        {
+                            Text = "医院",
+                            Name = "HospitalName",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 10,
+                            Width = 80,
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "费用金额",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex = 11,
+                            Name = "ResponsibilityAmount",
+                            Width = 80,
+                        },
+                    new ColumnHeader
+                        {
+                            Text="全自费",
+                            Name="QZFAmount",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex =12,
+                            Width = 80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text="部分自费",
+                            Name="BFZFAmount",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex =13,
+                            Width = 80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text="其他扣除费用",
+                            Name="QTKCAmount",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex =14,
+                            Width = 80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text="医保支付",
+                            Name="YBZFAmount",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex =15,
+                            Width = 80
+                        },
+                    new ColumnHeader
+                        {
+                            Text = "第三方支付",
+                            Name="DSFZFAmount",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex = 16,
+                            Width = 80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "免赔额",
+                            Name = "MPEAmount",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex = 17,
+                            Width = 80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "赔付比例",
+                            Name = "PFRate",
+                            TextAlign = HorizontalAlignment.Center,
+                            DisplayIndex = 18,
+                            Width = 60
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "赔付金额",
+                            TextAlign = HorizontalAlignment.Right,
+                            DisplayIndex = 17,
+                            Name = "ClaimAmount",
+                            Width = 80
+                        },
+                    new ColumnHeader
+                        {
+                            Text="赔案号",
+                            Name = "ClaimNo",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 18,
+                            Width=80
+                        }, 
+                    new ColumnHeader
+                        {
+                            Text = "备注",
+                            TextAlign = HorizontalAlignment.Left,
+                            DisplayIndex = 19,
+                            Name = "Remark",
+                            Width = 200
+                        },
+                });
         }
-        private void BindClaimDetailList(ClaimInfo claimInfo)
+        private void BindClaimDetailList(List<ClaimDetailInfo> objs)
         {
-            this.toolStripTextBox_SearchContent.ToolTipText = "输入工号、姓名、身份证号码进行模糊查找";
-            this.toolStripButton_Print.Enabled = true;
-            this.listView_Claim.Items.Clear();
-            this.listView_Claim.Tag = claimInfo;
-            var objs = GlobleVariables.ClaimDetails.FindAll(item => item.ClaimId == claimInfo.Id);
-            var insuranceInfo = GlobleVariables.Insurances.Find(item => item.Id == claimInfo.InsuranceId);
-            var customerInfo = GlobleVariables.Customers.Find(item => item.Id == insuranceInfo.CustomerId);
-
-            this.label_Title.Text = string.Format("{0} 保险单：{1} -> 理赔单：{2}", customerInfo.Name, insuranceInfo.Code, claimInfo.ClaimNo);
             foreach (var claimDetailInfo in objs)
             {
                 var item = new ListViewItem(claimDetailInfo.SequenceNo.ToString(), 3);
                 item.Tag = claimDetailInfo;
-                //item.SubItems.Add(claimDetailInfo.SequenceNo.ToString());
-                item.SubItems.Add(claimDetailInfo.HRID);
                 item.SubItems.Add(claimDetailInfo.Name);
-                item.SubItems.Add(claimDetailInfo.RelatedPerson);
+                item.SubItems.Add(claimDetailInfo.CertTypeName);
                 item.SubItems.Add(claimDetailInfo.PersonId);
-                item.SubItems.Add(claimDetailInfo.InvoiceCount.ToString());
-                item.SubItems.Add(claimDetailInfo.ResponsibilityAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.ClaimAmount.ToString());
                 item.SubItems.Add(claimDetailInfo.InsuranceTypeName);
+                item.SubItems.Add(claimDetailInfo.OccurDate.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(claimDetailInfo.BankName);
+                item.SubItems.Add(claimDetailInfo.AccountName);
+                item.SubItems.Add(claimDetailInfo.Account);
+                item.SubItems.Add(claimDetailInfo.InvoiceNo);
+                item.SubItems.Add(claimDetailInfo.InvoiceCount.ToString());
+                item.SubItems.Add(claimDetailInfo.HospitalName);
+
+                item.SubItems.Add(claimDetailInfo.ResponsibilityAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.QZFAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.BFZFAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.QTKCAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.YBZFAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.DSFZFAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.MPEAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.PFRate.ToString());
+
+                item.SubItems.Add(claimDetailInfo.ClaimAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.ClaimNo);
                 item.SubItems.Add(claimDetailInfo.Remark);
+
                 this.listView_Claim.Items.Add(item);
             }
+        }
+        private void BindClaimDetailList(ClaimInfo claimInfo)
+        {
+            this.toolStripTextBox_SearchContent.ToolTipText = "输入姓名、身份证号码进行模糊查找";
+            this.toolStripButton_Print.Enabled = true;
+            this.toolStripButton_ImportStaff.Enabled = false;
+            this.listView_Claim.Items.Clear();
+            this.listView_Claim.Tag = claimInfo;
+            this.ClaimDetailInfos = DataRepository.ClaimDetailProvider.GetByClaimId(claimInfo.Id);
+
+            var insuranceInfo = GlobleVariables.Insurances.Find(item => item.Id == claimInfo.InsuranceId);
+            var customerInfo = GlobleVariables.Customers.Find(item => item.Id == insuranceInfo.CustomerId);
+
+            this.label_Title.Text = string.Format("{0} 保险单：{1} -> 理赔单：{2}", customerInfo.Name, insuranceInfo.Code, claimInfo.ClaimNo);
+            
+            this.BindClaimDetailList(this.ClaimDetailInfos);
         }
         private void BindClaimDetailList(ClaimInfo claimInfo,string searchContent)
         {
             this.toolStripTextBox_SearchContent.ToolTipText = "输入工号、姓名、身份证号码进行模糊查找";
             this.toolStripButton_Print.Enabled = true;
+            this.toolStripButton_ImportStaff.Enabled = false;
             this.toolStripTextBox_SearchContent.Enabled = true;
             this.listView_Claim.Items.Clear();
             this.listView_Claim.Tag = claimInfo;
-            var objs = GlobleVariables.ClaimDetails.FindAll(item => item.ClaimId == claimInfo.Id);
+            var objs = this.ClaimDetailInfos;
 
-            var filterObjs = objs.FindAll(item => item.PersonId.ToUpper() == searchContent.ToUpper() || item.HRID.Contains(searchContent.ToUpper()) || item.Name.ToUpper().Contains(searchContent.ToUpper()));
+            var filterObjs = objs.FindAll(item => item.PersonId.ToUpper() == searchContent.ToUpper() || item.Name.ToUpper().Contains(searchContent.ToUpper()));
             if(filterObjs.Count == 0)
             {
-                filterObjs = objs.FindAll(item => item.PersonId.ToUpper().Contains(searchContent.ToUpper()) || item.HRID.Contains(searchContent.ToUpper()) || item.Name.ToUpper().Contains(searchContent.ToUpper()));
+                filterObjs = objs.FindAll(item => item.PersonId.ToUpper().Contains(searchContent.ToUpper()) || item.Name.ToUpper().Contains(searchContent.ToUpper()));
             }
             
             var insuranceInfo = GlobleVariables.Insurances.Find(item => item.Id == claimInfo.InsuranceId);
             var customerInfo = GlobleVariables.Customers.Find(item => item.Id == insuranceInfo.CustomerId);
 
             this.label_Title.Text = string.Format("{0} 保险单：{1} -> 理赔单：{2}", customerInfo.Name, insuranceInfo.Code, claimInfo.ClaimNo);
-            foreach (var claimDetailInfo in filterObjs)
-            {
-                var item = new ListViewItem(claimDetailInfo.SequenceNo.ToString(), 3);
-                item.Tag = claimDetailInfo;
-                //item.SubItems.Add(claimDetailInfo.SequenceNo.ToString());
-                item.SubItems.Add(claimDetailInfo.HRID);
-                item.SubItems.Add(claimDetailInfo.Name);
-                item.SubItems.Add(claimDetailInfo.RelatedPerson);
-                item.SubItems.Add(claimDetailInfo.PersonId);
-                item.SubItems.Add(claimDetailInfo.InvoiceCount.ToString());
-                item.SubItems.Add(claimDetailInfo.ResponsibilityAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.ClaimAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.InsuranceTypeName);
-                item.SubItems.Add(claimDetailInfo.Remark);
-                this.listView_Claim.Items.Add(item);
-            }
+            
+            this.BindClaimDetailList(filterObjs);
         }
-        
+        private void BindPersonList(string searchContent)
+        {
+            var filterObjs =
+                this.Staffs.FindAll(item => item.Code.Contains(searchContent) || item.CertId.Contains(searchContent) ||
+                                            item.Name.Contains(searchContent) || item.Company.Contains(searchContent) ||
+                                            item.Department.Contains(searchContent));
+            this.BindPersonList(filterObjs);
+
+        }
         #endregion
 
         #region private method
+        private string GetConnectionString(string fileName )
+        {
+            var fileExtension = fileName.Substring(fileName.LastIndexOf('.'));
+            var connectionString = fileExtension.Equals(".xls", StringComparison.OrdinalIgnoreCase)
+                                       ? string.Format(
+                                           "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES;IMEX=1'",
+                                           fileName)
+                                       : string.Format(
+                                           "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0;HDR=YES;IMEX=1'",
+                                           fileName);
+            return connectionString;
+        }
+        private string[] GetExcelSheetNames(string fileName)
+        {
+            OleDbConnection objConn = null;
+            DataTable dt = null;
+            try
+            {
+                var conString = this.GetConnectionString(fileName);
+                objConn = new OleDbConnection(conString);
+                objConn.Open();
+                dt = objConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+                if (dt == null)
+                {
+                    return null;
+                }
+                var excelSheets = new string[dt.Rows.Count];
+                var i = 0;
+                foreach (DataRow row in dt.Rows)
+                {
+                    excelSheets[i] = row["TABLE_NAME"].ToString();
+                    i++;
+                }
+                return excelSheets;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (objConn != null)
+                {
+                    objConn.Close();
+                    objConn.Dispose();
+                }
+                if (dt != null)
+                {
+                    dt.Dispose();
+                }
+            }
+        }
         private void AddCustomer(CustomerInfo obj)
         {
             var node = new TreeNode();
@@ -228,6 +535,14 @@ namespace InsuranceClaims
             node.Text = obj.Name;
             node.ToolTipText = obj.Remark;
             this.treeView_CustomerInsurance.Nodes.Add(node);
+
+            var personNode = new TreeNode();
+            personNode.Tag = obj;
+            personNode.Text = "花名册";
+            personNode.ToolTipText = "";
+            personNode.ImageIndex = 15;
+            personNode.SelectedImageIndex = 15;
+            node.Nodes.Add(personNode);
         }
         private void EditCustomer(CustomerInfo obj)
         {
@@ -326,11 +641,17 @@ namespace InsuranceClaims
 
         private void treeView_CustomerInsurance_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if(e.Node.Tag is InsuranceInfo)
+            if (e.Node.Tag is InsuranceInfo)
             {
                 var insuranceInfo = e.Node.Tag as InsuranceInfo;
                 this.InitClaimListView();
                 this.BindClaimList(insuranceInfo);
+            }
+            else if (e.Node.Text == "花名册" )
+            {
+                var customerInfo = e.Node.Tag as CustomerInfo;
+                this.InitPersonListView();
+                this.BindPersonList(customerInfo);
             }
         }
 
@@ -591,11 +912,7 @@ namespace InsuranceClaims
             }
         }
 
-        private void toolStripButton_Import_Click(object sender, EventArgs e)
-        {
-            
-
-        }
+        
 
         private void listView_Claim_MouseDown(object sender, MouseEventArgs e)
         {
@@ -606,23 +923,25 @@ namespace InsuranceClaims
                 var item = this.listView_Claim.GetItemAt(p.X,p.Y);
 
                 this.toolStripMenuItem_EditClaim.Visible = false;
-                if (Clipboard.GetText() != string.Empty)
-                {
-                    this.toolStripMenuItem_Paste.Enabled = true;
-                    this.toolStripMenuItem_Paste.Visible = true;
-                }
-                else
-                {
-                    this.toolStripMenuItem_Paste.Enabled = false;
-                    this.toolStripMenuItem_Paste.Visible = false;
-                }
+                this.toolStripMenuItem_Import.Enabled = true;
+                this.toolStripMenuItem_Import.Visible = true;
+                //if (Clipboard.GetText() != string.Empty)
+                //{
+                //    this.toolStripMenuItem_Import.Enabled = true;
+                //    this.toolStripMenuItem_Import.Visible = true;
+                //}
+                //else
+                //{
+                //    this.toolStripMenuItem_Import.Enabled = false;
+                //    this.toolStripMenuItem_Import.Visible = false;
+                //}
                 this.ToolStripMenuItem_Delete.Enabled = item != null;
                 
                 
             }
             else//理赔单列表。
             {
-                this.toolStripMenuItem_Paste.Visible = false;
+                this.toolStripMenuItem_Import.Visible = false;
                 this.toolStripMenuItem_EditClaim.Visible = true ;
 
                 var p = this.listView_Claim.PointToClient(MousePosition);
@@ -632,122 +951,7 @@ namespace InsuranceClaims
             }
         }
 
-        private void toolStripMenuItem_Paste_Click(object sender, EventArgs e)
-        {
-            // 获取剪切板的内容，并按行分割  
-            string pasteText = "";
-            pasteText = Clipboard.GetText();
-            pasteText = pasteText.Replace("\r\n", "|");
-            pasteText = pasteText.Replace("\t", ",");
-
-            if (string.IsNullOrEmpty(pasteText))
-                return;
-            var rows = pasteText.Split("|".ToCharArray());
-            #region 检查数据格式。
-            foreach (var s in rows)
-            {
-                if (string.IsNullOrEmpty(s))
-                    continue;
-                
-                var cols = s.Split(",".ToCharArray());
-                if (cols.Length < 9)
-                {
-                    MessageBox.Show(@"粘贴对象的格式不正确！
-正确的格式为：
-序号   工号 被保险人姓名   连带信息 身份证号    发票张数    责任内金额  给付金额    投保险种    备注");
-                    return;
-                }
-            }
-            for (var i=0;i<rows.Length;i++)
-            {
-                if(string.IsNullOrEmpty(rows[i]))
-                    continue;
-                var cols = rows[i].Split(",".ToCharArray());
-                if (!StringUtil.IsNumeric(cols[0].Trim()))
-                {
-                    MessageBox.Show(string.Format("第{0}行数据的序号格式不正确，请确保序号不为空且为数字型！",i));
-                    return;
-                }
-                if (!StringUtil.IsNumeric(cols[5].Trim()))
-                {
-                    MessageBox.Show(string.Format("第{0}行数据的发票张数格式不正确，请确保发票张数不为空且为数字型！", i));
-                    return;
-                }
-                try
-                {
-                    decimal.Parse(cols[6].Trim());
-                }
-                catch
-                {
-                    MessageBox.Show(string.Format("第{0}行数据的责任内金额格式不正确，请确保责任内金额不为空且为数字型！", i));
-                    return;                
-                }
-                try
-                {
-                    decimal.Parse(cols[7].Trim());
-                }
-                catch
-                {
-                    MessageBox.Show(string.Format("第{0}行数据的给付金额格式不正确，请确保给付金额不为空且为数字型！", i));
-                    return;
-                }
-                if(!GlobleVariables.InsuranceTypes.Exists(item=>item.Name == cols[8].Trim()))
-                {
-                    MessageBox.Show(string.Format("第{0}行数据的投保险种没有找到，请先添加投保险种！",i));
-                    return;
-                }
-            }
-            #endregion
-            #region 数据转换
-
-            var claimInfo = this.listView_Claim.Tag as ClaimInfo;
-            for (var i = 0; i < rows.Length; i++)
-            {
-                if(string.IsNullOrEmpty(rows[i]))
-                    continue;
-                var cols = rows[i].Split(",".ToCharArray());
-                var obj = new ClaimDetailInfo();
-                obj.ClaimId = claimInfo.Id;
-                obj.SequenceNo = long.Parse(cols[0]);
-                obj.HRID = cols[1];
-                obj.Name = cols[2];
-                obj.RelatedPerson = cols[3];
-                obj.PersonId = cols[4];
-                obj.InvoiceCount = string.IsNullOrEmpty(cols[5]) ? 0 : long.Parse(cols[5]);
-                obj.ResponsibilityAmount = decimal.Parse(cols[6]);
-                obj.ClaimAmount = decimal.Parse(cols[7]);
-                obj.InsuranceTypeId = GlobleVariables.InsuranceTypes.Find(item => item.Name == cols[8].Trim()).Id;
-                obj.InsuranceTypeName = cols[8].Trim();
-                if (cols.Length == 10)
-                    obj.Remark = cols[9].Trim();
-                else
-                    obj.Remark = string.Empty;
-
-                if(DataRepository.ClaimDetailProvider.Insert(obj)>0)
-                {
-                    GlobleVariables.ClaimDetails.Add(obj);
-                }
-            }
-            this.BindClaimDetailList(claimInfo);
-
-            #endregion
-            #region 重新计算理赔单总金额
-
-            var objs = GlobleVariables.ClaimDetails.FindAll(item => item.ClaimId == claimInfo.Id);
-            decimal subTotal = 0;
-            foreach(var obj in objs)
-            {
-                subTotal += obj.ClaimAmount;
-            }
-            claimInfo.SubTotal = subTotal;
-            if(!DataRepository.ClaimProvider.Update(claimInfo))
-            {
-                MessageBox.Show("更新理赔单总金额失败！");
-            }
-
-            #endregion
-
-        }
+        
 
         private void toolStripMenuItem_EditClaim_Click(object sender, EventArgs e)
         {
@@ -763,11 +967,7 @@ namespace InsuranceClaims
             }
         }
 
-        private void toolStripButton_InsuranceType_Click(object sender, EventArgs e)
-        {
-            var form = new FormInsuranceType();
-            form.Show();
-        }
+        
 
         private void listView_Claim_KeyDown(object sender, KeyEventArgs e)
         {
@@ -909,6 +1109,10 @@ namespace InsuranceClaims
                 var claimInfo = this.listView_Claim.Tag as ClaimInfo;
                 this.BindClaimDetailList(claimInfo, this.toolStripTextBox_SearchContent.Text.Trim());
             }
+            else if (this.listView_Claim.Tag is CustomerInfo)
+            {
+                this.BindPersonList(this.toolStripTextBox_SearchContent.Text.Trim());
+            }
             else
             {
                 var insuranceInfo = this.listView_Claim.Tag as InsuranceInfo;
@@ -939,6 +1143,182 @@ namespace InsuranceClaims
         private void FormMain_Load(object sender, EventArgs e)
         {
             this.toolStripStatusTextBox_Location.Focus();
+        }
+
+        
+
+        private void toolStripButton_ImportStaff_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+
+            if (this.openFileDialog_ImportStaff.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var fileName = this.openFileDialog_ImportStaff.FileName;
+                    var connectionString = this.GetConnectionString(fileName);
+                    var sheetName = this.GetExcelSheetNames(fileName)[0];
+                    var objs = new List<StaffInfo>();
+                    using (var connection = new OleDbConnection(connectionString))
+                    {
+                        var command = new OleDbCommand(string.Format("Select * From [{0}]", sheetName), connection);
+                        connection.Open();
+                        var dr = command.ExecuteReader();
+                        var customerId = (this.listView_Claim.Tag as CustomerInfo).Id;
+                        while (dr.Read())
+                        {
+                            var obj = new StaffInfo();
+                            obj.Name = dr[0].ToString();
+                            obj.Code = dr[1].ToString();
+                            obj.CertTypeId = dr[2].ToString();
+                            obj.CertId = dr[3].ToString();
+                            obj.Company = dr[4].ToString();
+                            obj.Department = dr[5].ToString();
+                            obj.Bank = dr[6].ToString();
+                            obj.Account = dr[7].ToString();
+                            obj.CustomerId = customerId;
+
+                            objs.Add(obj);
+                        }
+                    }
+
+                    foreach (var obj in objs)
+                    {
+                        var staff = DataRepository.StaffProvider.GetByCCC(obj.CustomerId,obj.CertId,obj.CertTypeId);
+                        if (staff == null)
+                        {
+                            DataRepository.StaffProvider.Insert(obj);
+                        }
+                        else
+                        {
+                            obj.Id = staff.Id;
+                            DataRepository.StaffProvider.Update(obj);
+                        }
+                    }
+                    this.BindPersonList(this.listView_Claim.Tag as CustomerInfo);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+
+            }
+        }
+
+        private void tsmi_InsuranceType_Click(object sender, EventArgs e)
+        {
+            var form = new FormInsuranceType();
+            form.Show();
+        }
+
+        private void tsmi_Bank_Click(object sender, EventArgs e)
+        {
+            var form = new FormBanks();
+            form.Show();
+        }
+
+        private void tsmi_Hospital_Click(object sender, EventArgs e)
+        {
+            var form = new FormHospitals();
+            form.Show();
+        }
+
+        private void tsmi_CertType_Click(object sender, EventArgs e)
+        {
+           new FormCertTypes().Show();
+        }
+
+        private void tsmi_ClaimType_Click(object sender, EventArgs e)
+        {
+            new FormClaimTypes().Show();
+        }
+
+        private void toolStripMenuItem_Import_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+
+            if (this.openFileDialog_ImportClaim.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var fileName = this.openFileDialog_ImportClaim.FileName;
+                    var connectionString = this.GetConnectionString(fileName);
+                    var sheetName = this.GetExcelSheetNames(fileName)[0];
+                    var objs = new List<ClaimDetailInfo>();
+                    var claimInfo = this.listView_Claim.Tag as ClaimInfo;
+                    var claimId = claimInfo.Id;
+                    using (var connection = new OleDbConnection(connectionString))
+                    {
+                        var command = new OleDbCommand(string.Format("Select * From [{0}]", sheetName), connection);
+                        connection.Open();
+                        var dr = command.ExecuteReader();
+                        var claimNo = string.Empty;
+                        while (dr.Read())
+                        {
+                            var obj = new ClaimDetailInfo();
+                            obj.SequenceNo = long.Parse(dr[0].ToString());
+                            obj.Name = dr[1].ToString();
+                            obj.Gender = dr[2].ToString() == "0" ? false : true;
+                            obj.CertType = dr[3].ToString();
+                            obj.PersonId = dr[4].ToString();
+                            obj.OccurDate = DateTime.Parse( dr[5].ToString().Substring(0,4)+"-"+dr[5].ToString().Substring(4,2)+"-"+dr[5].ToString().Substring(6,2));
+                            obj.ClaimTypeId = dr[6].ToString(); 
+                            obj.AccountName = dr[7].ToString();
+                            obj.BankId = dr[8].ToString();
+                            obj.Account = dr[9].ToString();
+                            obj.InsuranceTypeCode = dr[10].ToString();
+                            obj.InvoiceNo = dr[11].ToString();
+                            obj.HospitalId = dr[12].ToString();
+                            obj.InvoiceCount = long.Parse(dr[13].ToString());
+
+                            obj.ResponsibilityAmount = decimal.Parse(dr[14].ToString());
+                            obj.QZFAmount = dr[15]==DBNull.Value||string.IsNullOrEmpty(dr[15].ToString())?0:decimal.Parse(dr[15].ToString());
+                            obj.BFZFAmount = dr[16] == DBNull.Value || string.IsNullOrEmpty(dr[16].ToString())
+                                                 ? 0
+                                                 : decimal.Parse(dr[16].ToString());
+                            obj.QTKCAmount = dr[17] == DBNull.Value || string.IsNullOrEmpty(dr[17].ToString())
+                                                 ? 0
+                                                 : decimal.Parse(dr[17].ToString());
+                            obj.YBZFAmount = dr[18] == DBNull.Value || string.IsNullOrEmpty(dr[18].ToString())
+                                                 ? 0
+                                                 : decimal.Parse(dr[18].ToString());
+                            obj.DSFZFAmount = dr[19] == DBNull.Value || string.IsNullOrEmpty(dr[19].ToString())
+                                                 ? 0
+                                                 : decimal.Parse(dr[19].ToString());
+                            obj.MPEAmount = dr[20] == DBNull.Value || string.IsNullOrEmpty(dr[20].ToString())
+                                                 ? 0
+                                                 : decimal.Parse(dr[20].ToString());
+                            obj.PFRate = dr[21] == DBNull.Value || string.IsNullOrEmpty(dr[21].ToString())
+                                                 ? 1
+                                                 : decimal.Parse(dr[21].ToString());
+                            obj.ClaimAmount = dr[22] == DBNull.Value || string.IsNullOrEmpty(dr[22].ToString())
+                                                 ? 0
+                                                 : decimal.Parse(dr[22].ToString());
+                            obj.Remark = dr[23] == DBNull.Value ? string.Empty : dr[23].ToString();
+                            obj.ClaimNo = claimNo= dr[24] == DBNull.Value || string.IsNullOrEmpty(dr[24].ToString())
+                                              ? claimNo
+                                              : dr[24].ToString();
+                            
+                            obj.ClaimId = claimId;
+
+                            objs.Add(obj);
+                        }
+                    }
+                    //MessageBox.Show(objs.Count.ToString());
+                    foreach (var obj in objs)
+                    {
+                        DataRepository.ClaimDetailProvider.Insert(obj);
+                    }
+                    //MessageBox.Show("Insert Finished");
+                    this.BindClaimDetailList(claimInfo);
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+
+            }
         }
         
     }

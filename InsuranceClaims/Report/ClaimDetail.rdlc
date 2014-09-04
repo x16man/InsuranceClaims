@@ -24,39 +24,19 @@
   <PageHeader>
     <PrintOnFirstPage>true</PrintOnFirstPage>
     <ReportItems>
-      <Textbox Name="textbox13">
-        <rd:DefaultName>textbox13</rd:DefaultName>
-        <Top>0.25cm</Top>
-        <Width>3.5cm</Width>
-        <Style>
-          <FontFamily>宋体</FontFamily>
-          <TextAlign>Right</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>1</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>16.5cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>=cstr(Globals!PageNumber) + "/" + cstr(Globals!TotalPages)</Value>
-      </Textbox>
       <Image Name="image1">
         <Sizing>AutoSize</Sizing>
-        <Top>0.25cm</Top>
         <Width>5.95238cm</Width>
         <MIMEType>image/gif</MIMEType>
         <Source>Embedded</Source>
         <Style>
           <FontFamily>宋体</FontFamily>
         </Style>
-        <Left>0.5cm</Left>
-        <Height>1.03175cm</Height>
+        <Left>0.75cm</Left>
         <Value>logo</Value>
       </Image>
     </ReportItems>
-    <Height>1.5cm</Height>
+    <Height>1.03175cm</Height>
     <PrintOnLastPage>true</PrintOnLastPage>
   </PageHeader>
   <rd:ReportID>b266dc8c-e62f-4c4b-ac40-8b5a3eb4e543</rd:ReportID>
@@ -72,42 +52,42 @@ geO0CgL0H8fJAF/QB4RYAD39Adk5iiDoAMsACKK020URQhVqEOkZQgfoAbkgAQLwAELkAUpYQ9LgHOOU
   </EmbeddedImages>
   <PageWidth>21cm</PageWidth>
   <DataSets>
-    <DataSet Name="InsuranceClaimsDataSet_DataTable1">
+    <DataSet Name="InsuranceClaimsDataSet_ClaimPerson">
       <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ClaimId">
-          <DataField>ClaimId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="SequenceNo">
-          <DataField>SequenceNo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="CertType">
+          <DataField>CertType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="PersonId">
           <DataField>PersonId</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="InsuranceTypeId">
-          <DataField>InsuranceTypeId</DataField>
+        <Field Name="Company">
+          <DataField>Company</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClaimId">
+          <DataField>ClaimId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="InvoiceCount">
-          <DataField>InvoiceCount</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ResponsibilityAmount">
-          <DataField>ResponsibilityAmount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
+        <Field Name="InsuranceCode">
+          <DataField>InsuranceCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ClaimAmount">
-          <DataField>ClaimAmount</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Remark">
-          <DataField>Remark</DataField>
+        <Field Name="BankName">
+          <DataField>BankName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ClaimDate">
@@ -118,464 +98,104 @@ geO0CgL0H8fJAF/QB4RYAD39Adk5iiDoAMsACKK020URQhVqEOkZQgfoAbkgAQLwAELkAUpYQ9LgHOOU
           <DataField>ClaimNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Code">
-          <DataField>Code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Name">
           <DataField>Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
+        <Field Name="CertTypeName">
+          <DataField>CertTypeName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="InsuranceTypeName">
-          <DataField>InsuranceTypeName</DataField>
+        <Field Name="AccountName">
+          <DataField>AccountName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PersonName">
-          <DataField>PersonName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="InsuranceId">
-          <DataField>InsuranceId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CustomerId">
-          <DataField>CustomerId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="HRID">
-          <DataField>HRID</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="RelatedPerson">
-          <DataField>RelatedPerson</DataField>
+        <Field Name="Account">
+          <DataField>Account</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <Query>
         <DataSourceName>InsuranceClaimsConnectionString</DataSourceName>
-        <CommandText>Select A.*,B.Name As CustomerName,B.Address
-From 
-(Select A.*,B.Code,B.CustomerId
-From
-(Select A.*,B.ClaimNo,B.ClaimDate,B.InsuranceId
-From
-(Select A.ClaimId,A.HRID,A.PersonId,A.PersonName,A.RelatedPerson,A.InsuranceTypeId,A.InsuranceTypeName,
-        B.Id,B.SequenceNo,B.InvoiceCount,B.ResponsibilityAmount,B.ClaimAmount,B.Remark
-From
-	(Select A.*,B.Id As InsuranceTypeId,B.Name AS InsuranceTypeName
-	From  (Select Distinct ClaimId,PersonId,HRID,Name As PersonName,RelatedPerson From ClaimDetails Where ClaimId = ?) As A,InsuranceType B) As A
-Left Join ClaimDetails B 
-On 	A.ClaimId = B.ClaimId And
-	A.PersonId = B.PersonId And
-	A.InsuranceTypeId = B.InsuranceTypeId) As A Inner Join Claims B 
-ON	A.ClaimId = B.Id) As A Inner Join Insurances B
-On 	A.InsuranceId = B.Id) As A Inner Join Customers B
-On A.CustomerId = B.Id
-
-</CommandText>
+        <CommandText>Select	Distinct CertTypeName,PersonId,Name,Company,Department,Code,ClaimId,CustomerName,InsuranceCode,BankName,AccountName,Account,ClaimDate,ClaimNo
+From	CDS
+Where	ClaimId=?</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <rd:DataSetInfo>
         <rd:DataSetName>InsuranceClaimsDataSet</rd:DataSetName>
-        <rd:TableName>DataTable1</rd:TableName>
-        <rd:TableAdapterName>DataTable1TableAdapter</rd:TableAdapterName>
+        <rd:TableName>ClaimPerson</rd:TableName>
+        <rd:TableAdapterName>ClaimPersonTableAdapter</rd:TableAdapterName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <Author>x16man</Author>
-  <Code />
-  <Width>20.25cm</Width>
+  <Code>Function CNMoney(money As Double) As String  
+    Dim str_Money=money.ToString()  
+    Dim str_China As [String]() = {"分", "角", "元", "拾", "佰", "仟", _  
+        "万", "拾", "佰", "仟", "亿", "拾", _  
+        "佰", "仟", "兆", "拾", "佰", "仟"}  
+    Dim str_Number As [String]() = {"零", "壹", "贰", "叁", "肆", "伍", _  
+        "陆", "柒", "捌", "玖"}  
+    Dim M As [String] = ""  
+    Dim isPoint As Boolean = False  
+    If str_Money.IndexOf(".") &lt;&gt; -1 Then  
+        str_Money = str_Money.Remove(str_Money.IndexOf("."), 1)  
+        isPoint = True  
+    End If  
+    For i As Integer = str_Money.Length To 1 Step -1  
+        Dim MyData As Integer = Convert.ToInt16(str_Money(str_Money.Length - i).ToString())  
+        M += str_Number(MyData)  
+        If isPoint = True Then  
+            M += str_China(i - 1)  
+        Else  
+            M += str_China(i + 1)  
+        End If  
+    Next  
+    Return M  
+End Function  </Code>
+  <Width>20.5cm</Width>
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
-      <Table Name="table1">
-        <DataSetName>InsuranceClaimsDataSet_DataTable1</DataSetName>
-        <Top>0.5cm</Top>
+      <Table Name="table2">
+        <DataSetName>InsuranceClaimsDataSet_ClaimPerson</DataSetName>
         <TableGroups>
           <TableGroup>
-            <Grouping Name="table1_Group1">
+            <Grouping Name="Group1">
               <GroupExpressions>
-                <GroupExpression>=Fields!ClaimId.Value</GroupExpression>
-                <GroupExpression>=Fields!SequenceNo.Value</GroupExpression>
+                <GroupExpression>=RowNumber(nothing)</GroupExpression>
               </GroupExpressions>
               <PageBreakAtEnd>true</PageBreakAtEnd>
             </Grouping>
-            <Sorting>
-              <SortBy>
-                <SortExpression>=Fields!ClaimId.Value</SortExpression>
-                <Direction>Ascending</Direction>
-              </SortBy>
-              <SortBy>
-                <SortExpression>=Fields!SequenceNo.Value</SortExpression>
-                <Direction>Ascending</Direction>
-              </SortBy>
-            </Sorting>
             <Header>
               <TableRows>
                 <TableRow>
                   <TableCells>
                     <TableCell>
                       <ReportItems>
-                        <Textbox Name="textbox58">
-                          <rd:DefaultName>textbox58</rd:DefaultName>
+                        <Textbox Name="textbox83">
+                          <rd:DefaultName>textbox83</rd:DefaultName>
                           <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
                             <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                           <CanGrow>true</CanGrow>
-                          <Value>单位名称：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>6</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="textbox59">
-                          <rd:DefaultName>textbox59</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!CustomerName.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.75cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox47">
-                          <rd:DefaultName>textbox47</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>单位地址：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>6</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="textbox48">
-                          <rd:DefaultName>textbox48</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!Address.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.75cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox36">
-                          <rd:DefaultName>textbox36</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>被保险人姓名：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>3</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="PersonName">
-                          <rd:DefaultName>PersonName</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!PersonName.Value)</Value>
+                          <Value />
                         </Textbox>
                       </ReportItems>
                     </TableCell>
                     <TableCell>
                       <ReportItems>
-                        <Textbox Name="textbox15">
-                          <rd:DefaultName>textbox15</rd:DefaultName>
+                        <Textbox Name="textbox84">
+                          <rd:DefaultName>textbox84</rd:DefaultName>
                           <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
                             <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>连带信息：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>2</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="RelatedPerson">
-                          <rd:DefaultName>RelatedPerson</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!RelatedPerson.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.75cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox27">
-                          <rd:DefaultName>textbox27</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>身份号码：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>6</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="textbox28">
-                          <rd:DefaultName>textbox28</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!PersonId.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.75cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox18">
-                          <rd:DefaultName>textbox18</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>工号：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>6</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="HRID">
-                          <rd:DefaultName>HRID</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!HRID.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.75cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox9">
-                          <rd:DefaultName>textbox9</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>理赔提交日期：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ColSpan>6</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="textbox10">
-                          <rd:DefaultName>textbox10</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <Format>yyyy-MM-dd</Format>
-                            <TextAlign>Left</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=First(Fields!ClaimDate.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.63492cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="Name_2">
-                          <rd:DefaultName>Name_2</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -588,477 +208,9 @@ On A.CustomerId = B.Id
                     </TableCell>
                     <TableCell>
                       <ReportItems>
-                        <Textbox Name="textbox11">
-                          <rd:DefaultName>textbox11</rd:DefaultName>
+                        <Textbox Name="textbox92">
+                          <rd:DefaultName>textbox92</rd:DefaultName>
                           <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox12">
-                          <rd:DefaultName>textbox12</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox24">
-                          <rd:DefaultName>textbox24</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox57">
-                          <rd:DefaultName>textbox57</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox69">
-                          <rd:DefaultName>textbox69</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox81">
-                          <rd:DefaultName>textbox81</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.63492cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox2">
-                          <rd:DefaultName>textbox2</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>保单号</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox3">
-                          <rd:DefaultName>textbox3</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>赔案号</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox4">
-                          <rd:DefaultName>textbox4</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>投保险种</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox5">
-                          <rd:DefaultName>textbox5</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>发票张数</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox6">
-                          <rd:DefaultName>textbox6</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>责任内金额</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox7">
-                          <rd:DefaultName>textbox7</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>给付金额</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox8">
-                          <rd:DefaultName>textbox8</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Bottom>Black</Bottom>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                              <Bottom>Solid</Bottom>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Bottom>1pt</Bottom>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>备注</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.75cm</Height>
-                </TableRow>
-              </TableRows>
-            </Header>
-            <Footer>
-              <TableRows>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ColSpan>3</ColSpan>
-                      <ReportItems>
-                        <Textbox Name="textbox1">
-                          <rd:DefaultName>textbox1</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>合计：</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="InvoiceCount_1">
-                          <rd:DefaultName>InvoiceCount_1</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <TextAlign>Right</TextAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=Sum(Fields!InvoiceCount.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="ResponsibilityAmount_1">
-                          <rd:DefaultName>ResponsibilityAmount_1</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <TextAlign>Right</TextAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=Sum(Fields!ResponsibilityAmount.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="ClaimAmount_1">
-                          <rd:DefaultName>ClaimAmount_1</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
-                            <FontFamily>宋体</FontFamily>
-                            <TextAlign>Right</TextAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value>=Sum(Fields!ClaimAmount.Value)</Value>
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox19">
-                          <rd:DefaultName>textbox19</rd:DefaultName>
-                          <Style>
-                            <BorderStyle>
-                              <Default>Solid</Default>
-                            </BorderStyle>
                             <FontFamily>宋体</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1070,181 +222,11 @@ On A.CustomerId = B.Id
                         </Textbox>
                       </ReportItems>
                     </TableCell>
-                  </TableCells>
-                  <Height>0.63492cm</Height>
-                </TableRow>
-                <TableRow>
-                  <TableCells>
                     <TableCell>
                       <ReportItems>
-                        <Textbox Name="textbox29">
-                          <rd:DefaultName>textbox29</rd:DefaultName>
+                        <Textbox Name="textbox93">
+                          <rd:DefaultName>textbox93</rd:DefaultName>
                           <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox30">
-                          <rd:DefaultName>textbox30</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox31">
-                          <rd:DefaultName>textbox31</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox32">
-                          <rd:DefaultName>textbox32</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <TextAlign>Right</TextAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox33">
-                          <rd:DefaultName>textbox33</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <TextAlign>Right</TextAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox34">
-                          <rd:DefaultName>textbox34</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
-                            <FontFamily>宋体</FontFamily>
-                            <TextAlign>Right</TextAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox35">
-                          <rd:DefaultName>textbox35</rd:DefaultName>
-                          <Style>
-                            <BorderColor>
-                              <Top>Black</Top>
-                            </BorderColor>
-                            <BorderStyle>
-                              <Top>Solid</Top>
-                            </BorderStyle>
-                            <BorderWidth>
-                              <Top>1pt</Top>
-                            </BorderWidth>
                             <FontFamily>宋体</FontFamily>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1259,50 +241,200 @@ On A.CustomerId = B.Id
                   </TableCells>
                   <Height>0.25cm</Height>
                 </TableRow>
+              </TableRows>
+            </Header>
+            <Footer>
+              <TableRows>
                 <TableRow>
                   <TableCells>
                     <TableCell>
-                      <ColSpan>7</ColSpan>
                       <ReportItems>
-                        <Textbox Name="textbox14">
-                          <rd:DefaultName>textbox14</rd:DefaultName>
+                        <Textbox Name="textbox94">
+                          <rd:DefaultName>textbox94</rd:DefaultName>
                           <Style>
                             <FontFamily>宋体</FontFamily>
-                            <FontSize>12pt</FontSize>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                           <CanGrow>true</CanGrow>
-                          <Value>更多保险信息见背面</Value>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox95">
+                          <rd:DefaultName>textbox95</rd:DefaultName>
+                          <Style>
+                            <FontFamily>宋体</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ColSpan>2</ColSpan>
+                      <ReportItems>
+                        <Textbox Name="textbox96">
+                          <rd:DefaultName>textbox96</rd:DefaultName>
+                          <Style>
+                            <FontFamily>宋体</FontFamily>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
                         </Textbox>
                       </ReportItems>
                     </TableCell>
                   </TableCells>
-                  <Height>1cm</Height>
+                  <Height>0.63492cm</Height>
                 </TableRow>
               </TableRows>
             </Footer>
           </TableGroup>
         </TableGroups>
+        <Width>19cm</Width>
         <Details>
           <TableRows>
             <TableRow>
               <TableCells>
                 <TableCell>
                   <ReportItems>
+                    <Textbox Name="textbox61">
+                      <rd:DefaultName>textbox61</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>投保单位：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="CustomerName">
+                      <rd:DefaultName>CustomerName</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CustomerName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox63">
+                      <rd:DefaultName>textbox63</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>保单号码：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="InsuranceCode">
+                      <rd:DefaultName>InsuranceCode</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!InsuranceCode.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox78">
+                      <rd:DefaultName>textbox78</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>被保险人姓名：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Name">
+                      <rd:DefaultName>Name</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox80">
+                      <rd:DefaultName>textbox80</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>工号：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
                     <Textbox Name="Code">
                       <rd:DefaultName>Code</rd:DefaultName>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <VerticalAlign>Middle</VerticalAlign>
+                        <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1313,18 +445,247 @@ On A.CustomerId = B.Id
                     </Textbox>
                   </ReportItems>
                 </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox74">
+                      <rd:DefaultName>textbox74</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>证件类型：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="CertTypeName">
+                      <rd:DefaultName>CertTypeName</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CertTypeName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox76">
+                      <rd:DefaultName>textbox76</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>证件号码：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="PersonId">
+                      <rd:DefaultName>PersonId</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Left(Fields!PersonId.Value,4)+"******"+Right(Fields!PersonId.Value,4)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox70">
+                      <rd:DefaultName>textbox70</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>子单位/部门：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Company">
+                      <rd:DefaultName>Company</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Company.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox72">
+                      <rd:DefaultName>textbox72</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>开户名：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="AccountName">
+                      <rd:DefaultName>AccountName</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!AccountName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox65">
+                      <rd:DefaultName>textbox65</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>开户银行：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="BankName_1">
+                      <rd:DefaultName>BankName_1</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!BankName.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox67">
+                      <rd:DefaultName>textbox67</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>银行帐号：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Account">
+                      <rd:DefaultName>Account</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Left(Fields!Account.Value,4)+"******"+Right(Fields!Account.Value,4)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox44">
+                      <rd:DefaultName>textbox44</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>赔案号：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
                 <TableCell>
                   <ReportItems>
                     <Textbox Name="ClaimNo">
                       <rd:DefaultName>ClaimNo</rd:DefaultName>
-                      <HideDuplicates>InsuranceClaimsDataSet_DataTable1</HideDuplicates>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <VerticalAlign>Middle</VerticalAlign>
+                        <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1337,133 +698,451 @@ On A.CustomerId = B.Id
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="InsuranceTypeName">
-                      <rd:DefaultName>InsuranceTypeName</rd:DefaultName>
+                    <Textbox Name="textbox45">
+                      <rd:DefaultName>textbox45</rd:DefaultName>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!InsuranceTypeName.Value</Value>
+                      <Value>理赔日期：</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="InvoiceCount">
-                      <rd:DefaultName>InvoiceCount</rd:DefaultName>
+                    <Textbox Name="ClaimDate">
+                      <rd:DefaultName>ClaimDate</rd:DefaultName>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <TextAlign>Right</TextAlign>
-                        <VerticalAlign>Middle</VerticalAlign>
+                        <Format>yyyy-MM-dd</Format>
+                        <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!InvoiceCount.Value</Value>
+                      <Value>=Fields!ClaimDate.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="ResponsibilityAmount">
-                      <rd:DefaultName>ResponsibilityAmount</rd:DefaultName>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <TextAlign>Right</TextAlign>
-                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!ResponsibilityAmount.Value</Value>
+                      <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="ClaimAmount">
-                      <rd:DefaultName>ClaimAmount</rd:DefaultName>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <TextAlign>Right</TextAlign>
-                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!ClaimAmount.Value</Value>
+                      <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="Remark">
-                      <rd:DefaultName>Remark</rd:DefaultName>
+                    <Textbox Name="textbox4">
+                      <rd:DefaultName>textbox4</rd:DefaultName>
                       <Style>
-                        <BorderStyle>
-                          <Default>Solid</Default>
-                        </BorderStyle>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>9pt</FontSize>
-                        <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!Remark.Value</Value>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ColSpan>2</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox40">
+                      <rd:DefaultName>textbox40</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>经本公司审核，理赔结果如下：</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox51">
+                      <rd:DefaultName>textbox51</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox55">
+                      <rd:DefaultName>textbox55</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
                     </Textbox>
                   </ReportItems>
                 </TableCell>
               </TableCells>
               <Height>0.75cm</Height>
             </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ColSpan>4</ColSpan>
+                  <ReportItems>
+                    <Subreport Name="subreport1">
+                      <Parameters>
+                        <Parameter Name="ClaimId">
+                          <Value>=Fields!ClaimId.Value</Value>
+                        </Parameter>
+                        <Parameter Name="ClaimNo">
+                          <Value>=Fields!ClaimNo.Value</Value>
+                        </Parameter>
+                      </Parameters>
+                      <ReportName>ClaimInsuranceType</ReportName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                    </Subreport>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox5">
+                      <rd:DefaultName>textbox5</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox7">
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox8">
+                      <rd:DefaultName>textbox8</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ColSpan>4</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox9">
+                      <rd:DefaultName>textbox9</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>医疗账单费用明细</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ColSpan>4</ColSpan>
+                  <ReportItems>
+                    <Subreport Name="subreport2">
+                      <NoRows>无明细记录</NoRows>
+                      <Parameters>
+                        <Parameter Name="ClaimId">
+                          <Value>=Fields!ClaimId.Value</Value>
+                        </Parameter>
+                        <Parameter Name="ClaimNo">
+                          <Value>=Fields!ClaimNo.Value</Value>
+                        </Parameter>
+                      </Parameters>
+                      <ReportName>ClaimDetails</ReportName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                    </Subreport>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox11">
+                      <rd:DefaultName>textbox11</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox12">
+                      <rd:DefaultName>textbox12</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox13">
+                      <rd:DefaultName>textbox13</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox14">
+                      <rd:DefaultName>textbox14</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox15">
+                      <rd:DefaultName>textbox15</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ColSpan>2</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox16">
+                      <rd:DefaultName>textbox16</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>新华人寿保险股份有限公司上海分公司</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox18">
+                      <rd:DefaultName>textbox18</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox19">
+                      <rd:DefaultName>textbox19</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox20">
+                      <rd:DefaultName>textbox20</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox21">
+                      <rd:DefaultName>textbox21</rd:DefaultName>
+                      <Style>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>="打印日期："+cstr(Today())</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
           </TableRows>
         </Details>
         <Style>
           <FontFamily>宋体</FontFamily>
-          <VerticalAlign>Middle</VerticalAlign>
         </Style>
         <Header>
           <TableRows>
             <TableRow>
               <TableCells>
                 <TableCell>
-                  <ColSpan>7</ColSpan>
+                  <ColSpan>4</ColSpan>
                   <ReportItems>
-                    <Textbox Name="textbox25">
-                      <rd:DefaultName>textbox25</rd:DefaultName>
+                    <Textbox Name="textbox54">
+                      <rd:DefaultName>textbox54</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>18pt</FontSize>
+                        <FontSize>16pt</FontSize>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1472,7 +1151,7 @@ On A.CustomerId = B.Id
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>个人理赔结果对照表</Value>
+                      <Value>新华人寿保险股份有限公司</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1482,19 +1161,53 @@ On A.CustomerId = B.Id
             <TableRow>
               <TableCells>
                 <TableCell>
+                  <ColSpan>4</ColSpan>
                   <ReportItems>
-                    <Textbox Name="textbox85">
-                      <rd:DefaultName>textbox85</rd:DefaultName>
+                    <Textbox Name="textbox39">
+                      <rd:DefaultName>textbox39</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
+                        <FontFamily>宋体</FontFamily>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>个人理赔通知书</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>3.25cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>6.5cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>6.25cm</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>12.79364cm</Height>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox48">
+                      <rd:DefaultName>textbox48</rd:DefaultName>
+                      <Style>
                         <FontFamily>宋体</FontFamily>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1508,18 +1221,9 @@ On A.CustomerId = B.Id
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="textbox86">
-                      <rd:DefaultName>textbox86</rd:DefaultName>
+                    <Textbox Name="textbox53">
+                      <rd:DefaultName>textbox53</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1533,18 +1237,9 @@ On A.CustomerId = B.Id
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="textbox87">
-                      <rd:DefaultName>textbox87</rd:DefaultName>
+                    <Textbox Name="textbox49">
+                      <rd:DefaultName>textbox49</rd:DefaultName>
                       <Style>
-                        <BorderColor>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1558,92 +1253,17 @@ On A.CustomerId = B.Id
                 </TableCell>
                 <TableCell>
                   <ReportItems>
-                    <Textbox Name="textbox88">
-                      <rd:DefaultName>textbox88</rd:DefaultName>
+                    <Textbox Name="textbox50">
+                      <rd:DefaultName>textbox50</rd:DefaultName>
                       <Style>
                         <BorderColor>
-                          <Bottom>Black</Bottom>
+                          <Right>Black</Right>
                         </BorderColor>
                         <BorderStyle>
-                          <Bottom>Solid</Bottom>
+                          <Right>Solid</Right>
                         </BorderStyle>
                         <BorderWidth>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
-                        <FontFamily>宋体</FontFamily>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                      <CanGrow>true</CanGrow>
-                      <Value />
-                    </Textbox>
-                  </ReportItems>
-                </TableCell>
-                <TableCell>
-                  <ReportItems>
-                    <Textbox Name="textbox89">
-                      <rd:DefaultName>textbox89</rd:DefaultName>
-                      <Style>
-                        <BorderColor>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
-                        <FontFamily>宋体</FontFamily>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                      <CanGrow>true</CanGrow>
-                      <Value />
-                    </Textbox>
-                  </ReportItems>
-                </TableCell>
-                <TableCell>
-                  <ReportItems>
-                    <Textbox Name="textbox90">
-                      <rd:DefaultName>textbox90</rd:DefaultName>
-                      <Style>
-                        <BorderColor>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Bottom>1pt</Bottom>
-                        </BorderWidth>
-                        <FontFamily>宋体</FontFamily>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                      <CanGrow>true</CanGrow>
-                      <Value />
-                    </Textbox>
-                  </ReportItems>
-                </TableCell>
-                <TableCell>
-                  <ReportItems>
-                    <Textbox Name="textbox91">
-                      <rd:DefaultName>textbox91</rd:DefaultName>
-                      <Style>
-                        <BorderColor>
-                          <Bottom>Black</Bottom>
-                        </BorderColor>
-                        <BorderStyle>
-                          <Bottom>Solid</Bottom>
-                        </BorderStyle>
-                        <BorderWidth>
-                          <Bottom>1pt</Bottom>
+                          <Right>1pt</Right>
                         </BorderWidth>
                         <FontFamily>宋体</FontFamily>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1660,36 +1280,11 @@ On A.CustomerId = B.Id
               <Height>0.63492cm</Height>
             </TableRow>
           </TableRows>
-          <RepeatOnNewPage>true</RepeatOnNewPage>
-        </Header>
-        <TableColumns>
-          <TableColumn>
-            <Width>3.75cm</Width>
-          </TableColumn>
-          <TableColumn>
-            <Width>3.5cm</Width>
-          </TableColumn>
-          <TableColumn>
-            <Width>2.25cm</Width>
-          </TableColumn>
-          <TableColumn>
-            <Width>2.25cm</Width>
-          </TableColumn>
-          <TableColumn>
-            <Width>2.75cm</Width>
-          </TableColumn>
-          <TableColumn>
-            <Width>2.5cm</Width>
-          </TableColumn>
-          <TableColumn>
-            <Width>2.5cm</Width>
-          </TableColumn>
-        </TableColumns>
-        <Height>10.03968cm</Height>
-        <Left>0.75cm</Left>
+        </Footer>
+        <Left>1cm</Left>
       </Table>
     </ReportItems>
-    <Height>17cm</Height>
+    <Height>13.75cm</Height>
   </Body>
   <Language>zh-CN</Language>
   <TopMargin>1cm</TopMargin>

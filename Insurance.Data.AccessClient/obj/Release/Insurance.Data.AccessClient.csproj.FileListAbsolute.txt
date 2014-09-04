@@ -1,0 +1,8 @@
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\bin\Release\Insurance.Data.AccessClient.dll
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\bin\Release\Insurance.Data.dll
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\bin\Release\log4net.dll
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\bin\Release\Shmzh.Components.SystemComponent.dll
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\bin\Release\Shmzh.Components.Util.dll
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\bin\Release\log4net.xml
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\obj\Release\ResolveAssemblyReference.cache
+D:\GIT\InsuranceClaims\Insurance.Data.AccessClient\obj\Release\Insurance.Data.AccessClient.dll

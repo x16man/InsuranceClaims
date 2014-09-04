@@ -31,36 +31,44 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.toolStrip_Main = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton_ImportStaff = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_AddClaim = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton_Print = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel_Search = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripTextBox_SearchContent = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.label_Title = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton_Exit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator_Exit = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsmi_InsuranceType = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Bank = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Hospital = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_CertType = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_ClaimType = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip_Main = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView_CustomerInsurance = new System.Windows.Forms.TreeView();
             this.contextMenuStrip_TreeView = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.listView_Claim = new System.Windows.Forms.ListView();
-            this.contextMenuStrip_ListView = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label_Title = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox_SearchContent = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripMenuItem_AddCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_EditCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DeleteCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem_AddInsurance = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_EditInsurance = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DeleteInsurance = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem_Paste = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.listView_Claim = new System.Windows.Forms.ListView();
+            this.contextMenuStrip_ListView = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem_Import = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_EditClaim = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton_AddClaim = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_Print = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel_Search = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton_Exit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_InsuranceType = new System.Windows.Forms.ToolStripButton();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.openFileDialog_ImportStaff = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog_ImportClaim = new System.Windows.Forms.OpenFileDialog();
             this.toolStrip_Main.SuspendLayout();
             this.statusStrip_Main.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -73,6 +81,7 @@
             // toolStrip_Main
             // 
             this.toolStrip_Main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton_ImportStaff,
             this.toolStripButton_AddClaim,
             this.toolStripSeparator5,
             this.toolStripButton_Print,
@@ -83,24 +92,146 @@
             this.label_Title,
             this.toolStripButton_Exit,
             this.toolStripSeparator_Exit,
-            this.toolStripButton_InsuranceType});
+            this.toolStripDropDownButton1});
             this.toolStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.toolStrip_Main.Name = "toolStrip_Main";
             this.toolStrip_Main.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip_Main.Size = new System.Drawing.Size(536, 25);
+            this.toolStrip_Main.Size = new System.Drawing.Size(875, 25);
             this.toolStrip_Main.TabIndex = 0;
             this.toolStrip_Main.Text = "toolStrip1";
+            // 
+            // toolStripButton_ImportStaff
+            // 
+            this.toolStripButton_ImportStaff.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_ImportStaff.Name = "toolStripButton_ImportStaff";
+            this.toolStripButton_ImportStaff.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButton_ImportStaff.Text = "导入员工";
+            this.toolStripButton_ImportStaff.Click += new System.EventHandler(this.toolStripButton_ImportStaff_Click);
+            // 
+            // toolStripButton_AddClaim
+            // 
+            this.toolStripButton_AddClaim.Image = global::InsuranceClaims.Properties.Resources._077_AddFile_16x16_72;
+            this.toolStripButton_AddClaim.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_AddClaim.Name = "toolStripButton_AddClaim";
+            this.toolStripButton_AddClaim.Size = new System.Drawing.Size(106, 22);
+            this.toolStripButton_AddClaim.Text = "新建理赔单(&N)";
+            this.toolStripButton_AddClaim.Click += new System.EventHandler(this.toolStripButton_AddClaim_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton_Print
+            // 
+            this.toolStripButton_Print.Enabled = false;
+            this.toolStripButton_Print.Image = global::InsuranceClaims.Properties.Resources.printer;
+            this.toolStripButton_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Print.Name = "toolStripButton_Print";
+            this.toolStripButton_Print.Size = new System.Drawing.Size(67, 22);
+            this.toolStripButton_Print.Text = "打印(&P)";
+            this.toolStripButton_Print.Click += new System.EventHandler(this.toolStripButton_Print_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripLabel_Search
+            // 
+            this.toolStripLabel_Search.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLabel_Search.Image = global::InsuranceClaims.Properties.Resources.Find_VS;
+            this.toolStripLabel_Search.Name = "toolStripLabel_Search";
+            this.toolStripLabel_Search.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabel_Search.Text = "toolStripLabel1";
+            // 
+            // toolStripTextBox_SearchContent
+            // 
+            this.toolStripTextBox_SearchContent.MaxLength = 50;
+            this.toolStripTextBox_SearchContent.Name = "toolStripTextBox_SearchContent";
+            this.toolStripTextBox_SearchContent.Size = new System.Drawing.Size(180, 25);
+            this.toolStripTextBox_SearchContent.ToolTipText = "可输入工号、姓名、身份证号码进行查找";
+            this.toolStripTextBox_SearchContent.TextChanged += new System.EventHandler(this.toolStripTextBox_SearchContent_TextChanged);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // label_Title
+            // 
+            this.label_Title.BackColor = System.Drawing.SystemColors.Control;
+            this.label_Title.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label_Title.ForeColor = System.Drawing.Color.Black;
+            this.label_Title.Name = "label_Title";
+            this.label_Title.Size = new System.Drawing.Size(0, 22);
+            // 
+            // toolStripButton_Exit
+            // 
+            this.toolStripButton_Exit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButton_Exit.Image = global::InsuranceClaims.Properties.Resources.exit;
+            this.toolStripButton_Exit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Exit.Name = "toolStripButton_Exit";
+            this.toolStripButton_Exit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripButton_Exit.Size = new System.Drawing.Size(68, 22);
+            this.toolStripButton_Exit.Text = "退出(&X)";
+            this.toolStripButton_Exit.Click += new System.EventHandler(this.toolStripButton_Exit_Click);
+            // 
             // toolStripSeparator_Exit
             // 
             this.toolStripSeparator_Exit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator_Exit.Name = "toolStripSeparator_Exit";
             this.toolStripSeparator_Exit.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_InsuranceType,
+            this.tsmi_Bank,
+            this.tsmi_Hospital,
+            this.tsmi_CertType,
+            this.tsmi_ClaimType});
+            this.toolStripDropDownButton1.Image = global::InsuranceClaims.Properties.Resources.ViewThumbnailsHS;
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(85, 22);
+            this.toolStripDropDownButton1.Text = "基础数据";
+            // 
+            // tsmi_InsuranceType
+            // 
+            this.tsmi_InsuranceType.Name = "tsmi_InsuranceType";
+            this.tsmi_InsuranceType.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_InsuranceType.Text = "险种";
+            this.tsmi_InsuranceType.Click += new System.EventHandler(this.tsmi_InsuranceType_Click);
+            // 
+            // tsmi_Bank
+            // 
+            this.tsmi_Bank.Name = "tsmi_Bank";
+            this.tsmi_Bank.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_Bank.Text = "银行";
+            this.tsmi_Bank.Click += new System.EventHandler(this.tsmi_Bank_Click);
+            // 
+            // tsmi_Hospital
+            // 
+            this.tsmi_Hospital.Name = "tsmi_Hospital";
+            this.tsmi_Hospital.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_Hospital.Text = "医院";
+            this.tsmi_Hospital.Click += new System.EventHandler(this.tsmi_Hospital_Click);
+            // 
+            // tsmi_CertType
+            // 
+            this.tsmi_CertType.Name = "tsmi_CertType";
+            this.tsmi_CertType.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_CertType.Text = "证件类型";
+            this.tsmi_CertType.Click += new System.EventHandler(this.tsmi_CertType_Click);
+            // 
+            // tsmi_ClaimType
+            // 
+            this.tsmi_ClaimType.Name = "tsmi_ClaimType";
+            this.tsmi_ClaimType.Size = new System.Drawing.Size(124, 22);
+            this.tsmi_ClaimType.Text = "理赔类型";
+            this.tsmi_ClaimType.Click += new System.EventHandler(this.tsmi_ClaimType_Click);
             // 
             // statusStrip_Main
             // 
@@ -110,9 +241,24 @@
             this.toolStripStatusLabel2});
             this.statusStrip_Main.Location = new System.Drawing.Point(0, 482);
             this.statusStrip_Main.Name = "statusStrip_Main";
-            this.statusStrip_Main.Size = new System.Drawing.Size(740, 22);
+            this.statusStrip_Main.Size = new System.Drawing.Size(1079, 22);
             this.statusStrip_Main.TabIndex = 1;
             this.statusStrip_Main.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripStatusLabel1.Image = global::InsuranceClaims.Properties.Resources.LayoutSelectRow;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(16, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel_Location";
+            this.toolStripStatusLabel1.ToolTipText = "报单定位";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(176, 17);
+            this.toolStripStatusLabel2.Text = "输入保单号进行保单的模糊定位";
             // 
             // splitContainer1
             // 
@@ -129,7 +275,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.listView_Claim);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip_Main);
-            this.splitContainer1.Size = new System.Drawing.Size(740, 482);
+            this.splitContainer1.Size = new System.Drawing.Size(1079, 482);
             this.splitContainer1.SplitterDistance = 200;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -164,12 +310,60 @@
             this.toolStripMenuItem_DeleteInsurance});
             this.contextMenuStrip_TreeView.Name = "contextMenuStrip_TreeView";
             this.contextMenuStrip_TreeView.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip_TreeView.Size = new System.Drawing.Size(131, 142);
+            this.contextMenuStrip_TreeView.Size = new System.Drawing.Size(137, 142);
+            // 
+            // toolStripMenuItem_AddCustomer
+            // 
+            this.toolStripMenuItem_AddCustomer.Image = global::InsuranceClaims.Properties.Resources._042b_AddCategory_16x16_72;
+            this.toolStripMenuItem_AddCustomer.Name = "toolStripMenuItem_AddCustomer";
+            this.toolStripMenuItem_AddCustomer.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem_AddCustomer.Text = "新建客户";
+            this.toolStripMenuItem_AddCustomer.Click += new System.EventHandler(this.toolStripMenuItem_AddCustomer_Click);
+            // 
+            // toolStripMenuItem_EditCustomer
+            // 
+            this.toolStripMenuItem_EditCustomer.Image = global::InsuranceClaims.Properties.Resources._126_Edit_16x16_72;
+            this.toolStripMenuItem_EditCustomer.Name = "toolStripMenuItem_EditCustomer";
+            this.toolStripMenuItem_EditCustomer.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem_EditCustomer.Text = "修改客户";
+            this.toolStripMenuItem_EditCustomer.Click += new System.EventHandler(this.toolStripMenuItem_EditCustomer_Click);
+            // 
+            // toolStripMenuItem_DeleteCustomer
+            // 
+            this.toolStripMenuItem_DeleteCustomer.Image = global::InsuranceClaims.Properties.Resources.DeleteHS;
+            this.toolStripMenuItem_DeleteCustomer.Name = "toolStripMenuItem_DeleteCustomer";
+            this.toolStripMenuItem_DeleteCustomer.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem_DeleteCustomer.Text = "删除客户";
+            this.toolStripMenuItem_DeleteCustomer.Click += new System.EventHandler(this.toolStripMenuItem_DeleteCustomer_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
+            // 
+            // toolStripMenuItem_AddInsurance
+            // 
+            this.toolStripMenuItem_AddInsurance.Image = global::InsuranceClaims.Properties.Resources._077_AddFile_16x16_72;
+            this.toolStripMenuItem_AddInsurance.Name = "toolStripMenuItem_AddInsurance";
+            this.toolStripMenuItem_AddInsurance.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem_AddInsurance.Text = "新建保险单";
+            this.toolStripMenuItem_AddInsurance.Click += new System.EventHandler(this.toolStripMenuItem_AddInsurance_Click);
+            // 
+            // toolStripMenuItem_EditInsurance
+            // 
+            this.toolStripMenuItem_EditInsurance.Image = global::InsuranceClaims.Properties.Resources._126_Edit_16x16_72;
+            this.toolStripMenuItem_EditInsurance.Name = "toolStripMenuItem_EditInsurance";
+            this.toolStripMenuItem_EditInsurance.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem_EditInsurance.Text = "修改保险单";
+            this.toolStripMenuItem_EditInsurance.Click += new System.EventHandler(this.toolStripMenuItem_EditInsurance_Click);
+            // 
+            // toolStripMenuItem_DeleteInsurance
+            // 
+            this.toolStripMenuItem_DeleteInsurance.Image = global::InsuranceClaims.Properties.Resources.DeleteHS;
+            this.toolStripMenuItem_DeleteInsurance.Name = "toolStripMenuItem_DeleteInsurance";
+            this.toolStripMenuItem_DeleteInsurance.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem_DeleteInsurance.Text = "删除保险单";
+            this.toolStripMenuItem_DeleteInsurance.Click += new System.EventHandler(this.toolStripMenuItem_DeleteInsurance_Click);
             // 
             // imageList1
             // 
@@ -202,7 +396,7 @@
             this.listView_Claim.HideSelection = false;
             this.listView_Claim.Location = new System.Drawing.Point(0, 25);
             this.listView_Claim.Name = "listView_Claim";
-            this.listView_Claim.Size = new System.Drawing.Size(536, 457);
+            this.listView_Claim.Size = new System.Drawing.Size(875, 457);
             this.listView_Claim.SmallImageList = this.imageList1;
             this.listView_Claim.TabIndex = 0;
             this.listView_Claim.UseCompatibleStateImageBehavior = false;
@@ -213,107 +407,27 @@
             // contextMenuStrip_ListView
             // 
             this.contextMenuStrip_ListView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem_Paste,
+            this.toolStripMenuItem_Import,
             this.toolStripMenuItem_EditClaim,
             this.ToolStripMenuItem_Delete});
             this.contextMenuStrip_ListView.Name = "contextMenuStrip_ListView";
             this.contextMenuStrip_ListView.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuStrip_ListView.Size = new System.Drawing.Size(136, 70);
+            this.contextMenuStrip_ListView.Size = new System.Drawing.Size(146, 70);
             // 
-            // label_Title
+            // toolStripMenuItem_Import
             // 
-            this.label_Title.BackColor = System.Drawing.SystemColors.Control;
-            this.label_Title.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label_Title.ForeColor = System.Drawing.Color.Black;
-            this.label_Title.Name = "label_Title";
-            this.label_Title.Size = new System.Drawing.Size(0, 22);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripTextBox_SearchContent
-            // 
-            this.toolStripTextBox_SearchContent.MaxLength = 50;
-            this.toolStripTextBox_SearchContent.Name = "toolStripTextBox_SearchContent";
-            this.toolStripTextBox_SearchContent.Size = new System.Drawing.Size(180, 25);
-            this.toolStripTextBox_SearchContent.ToolTipText = "可输入工号、姓名、身份证号码进行查找";
-            this.toolStripTextBox_SearchContent.TextChanged += new System.EventHandler(this.toolStripTextBox_SearchContent_TextChanged);
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(173, 17);
-            this.toolStripStatusLabel2.Text = "输入保单号进行保单的模糊定位";
-            // 
-            // toolStripMenuItem_AddCustomer
-            // 
-            this.toolStripMenuItem_AddCustomer.Image = global::InsuranceClaims.Properties.Resources._042b_AddCategory_16x16_72;
-            this.toolStripMenuItem_AddCustomer.Name = "toolStripMenuItem_AddCustomer";
-            this.toolStripMenuItem_AddCustomer.Size = new System.Drawing.Size(130, 22);
-            this.toolStripMenuItem_AddCustomer.Text = "新建客户";
-            this.toolStripMenuItem_AddCustomer.Click += new System.EventHandler(this.toolStripMenuItem_AddCustomer_Click);
-            // 
-            // toolStripMenuItem_EditCustomer
-            // 
-            this.toolStripMenuItem_EditCustomer.Image = global::InsuranceClaims.Properties.Resources._126_Edit_16x16_72;
-            this.toolStripMenuItem_EditCustomer.Name = "toolStripMenuItem_EditCustomer";
-            this.toolStripMenuItem_EditCustomer.Size = new System.Drawing.Size(130, 22);
-            this.toolStripMenuItem_EditCustomer.Text = "修改客户";
-            this.toolStripMenuItem_EditCustomer.Click += new System.EventHandler(this.toolStripMenuItem_EditCustomer_Click);
-            // 
-            // toolStripMenuItem_DeleteCustomer
-            // 
-            this.toolStripMenuItem_DeleteCustomer.Image = global::InsuranceClaims.Properties.Resources.DeleteHS;
-            this.toolStripMenuItem_DeleteCustomer.Name = "toolStripMenuItem_DeleteCustomer";
-            this.toolStripMenuItem_DeleteCustomer.Size = new System.Drawing.Size(130, 22);
-            this.toolStripMenuItem_DeleteCustomer.Text = "删除客户";
-            this.toolStripMenuItem_DeleteCustomer.Click += new System.EventHandler(this.toolStripMenuItem_DeleteCustomer_Click);
-            // 
-            // toolStripMenuItem_AddInsurance
-            // 
-            this.toolStripMenuItem_AddInsurance.Image = global::InsuranceClaims.Properties.Resources._077_AddFile_16x16_72;
-            this.toolStripMenuItem_AddInsurance.Name = "toolStripMenuItem_AddInsurance";
-            this.toolStripMenuItem_AddInsurance.Size = new System.Drawing.Size(130, 22);
-            this.toolStripMenuItem_AddInsurance.Text = "新建保险单";
-            this.toolStripMenuItem_AddInsurance.Click += new System.EventHandler(this.toolStripMenuItem_AddInsurance_Click);
-            // 
-            // toolStripMenuItem_EditInsurance
-            // 
-            this.toolStripMenuItem_EditInsurance.Image = global::InsuranceClaims.Properties.Resources._126_Edit_16x16_72;
-            this.toolStripMenuItem_EditInsurance.Name = "toolStripMenuItem_EditInsurance";
-            this.toolStripMenuItem_EditInsurance.Size = new System.Drawing.Size(130, 22);
-            this.toolStripMenuItem_EditInsurance.Text = "修改保险单";
-            this.toolStripMenuItem_EditInsurance.Click += new System.EventHandler(this.toolStripMenuItem_EditInsurance_Click);
-            // 
-            // toolStripMenuItem_DeleteInsurance
-            // 
-            this.toolStripMenuItem_DeleteInsurance.Image = global::InsuranceClaims.Properties.Resources.DeleteHS;
-            this.toolStripMenuItem_DeleteInsurance.Name = "toolStripMenuItem_DeleteInsurance";
-            this.toolStripMenuItem_DeleteInsurance.Size = new System.Drawing.Size(130, 22);
-            this.toolStripMenuItem_DeleteInsurance.Text = "删除保险单";
-            this.toolStripMenuItem_DeleteInsurance.Click += new System.EventHandler(this.toolStripMenuItem_DeleteInsurance_Click);
-            // 
-            // toolStripMenuItem_Paste
-            // 
-            this.toolStripMenuItem_Paste.Image = global::InsuranceClaims.Properties.Resources.PasteHS;
-            this.toolStripMenuItem_Paste.Name = "toolStripMenuItem_Paste";
-            this.toolStripMenuItem_Paste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.toolStripMenuItem_Paste.Size = new System.Drawing.Size(135, 22);
-            this.toolStripMenuItem_Paste.Text = "粘贴";
-            this.toolStripMenuItem_Paste.Click += new System.EventHandler(this.toolStripMenuItem_Paste_Click);
+            this.toolStripMenuItem_Import.Image = global::InsuranceClaims.Properties.Resources.PasteHS;
+            this.toolStripMenuItem_Import.Name = "toolStripMenuItem_Import";
+            this.toolStripMenuItem_Import.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.toolStripMenuItem_Import.Size = new System.Drawing.Size(145, 22);
+            this.toolStripMenuItem_Import.Text = "导入";
+            this.toolStripMenuItem_Import.Click += new System.EventHandler(this.toolStripMenuItem_Import_Click);
             // 
             // toolStripMenuItem_EditClaim
             // 
             this.toolStripMenuItem_EditClaim.Image = global::InsuranceClaims.Properties.Resources.Properties;
             this.toolStripMenuItem_EditClaim.Name = "toolStripMenuItem_EditClaim";
-            this.toolStripMenuItem_EditClaim.Size = new System.Drawing.Size(135, 22);
+            this.toolStripMenuItem_EditClaim.Size = new System.Drawing.Size(145, 22);
             this.toolStripMenuItem_EditClaim.Text = "修改";
             this.toolStripMenuItem_EditClaim.Click += new System.EventHandler(this.toolStripMenuItem_EditClaim_Click);
             // 
@@ -322,72 +436,26 @@
             this.ToolStripMenuItem_Delete.Image = global::InsuranceClaims.Properties.Resources.DeleteHS;
             this.ToolStripMenuItem_Delete.Name = "ToolStripMenuItem_Delete";
             this.ToolStripMenuItem_Delete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.ToolStripMenuItem_Delete.Size = new System.Drawing.Size(135, 22);
+            this.ToolStripMenuItem_Delete.Size = new System.Drawing.Size(145, 22);
             this.ToolStripMenuItem_Delete.Text = "删除";
             this.ToolStripMenuItem_Delete.Click += new System.EventHandler(this.ToolStripMenuItem_Delete_Click);
             // 
-            // toolStripButton_AddClaim
+            // openFileDialog_ImportStaff
             // 
-            this.toolStripButton_AddClaim.Image = global::InsuranceClaims.Properties.Resources._077_AddFile_16x16_72;
-            this.toolStripButton_AddClaim.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_AddClaim.Name = "toolStripButton_AddClaim";
-            this.toolStripButton_AddClaim.Size = new System.Drawing.Size(103, 22);
-            this.toolStripButton_AddClaim.Text = "新建理赔单(&N)";
-            this.toolStripButton_AddClaim.Click += new System.EventHandler(this.toolStripButton_AddClaim_Click);
+            this.openFileDialog_ImportStaff.Filter = "|*.xls";
+            this.openFileDialog_ImportStaff.RestoreDirectory = true;
+            this.openFileDialog_ImportStaff.Title = "导入员工花名册";
             // 
-            // toolStripButton_Print
+            // openFileDialog_ImportClaim
             // 
-            this.toolStripButton_Print.Enabled = false;
-            this.toolStripButton_Print.Image = global::InsuranceClaims.Properties.Resources.printer;
-            this.toolStripButton_Print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Print.Name = "toolStripButton_Print";
-            this.toolStripButton_Print.Size = new System.Drawing.Size(67, 22);
-            this.toolStripButton_Print.Text = "打印(&P)";
-            this.toolStripButton_Print.Click += new System.EventHandler(this.toolStripButton_Print_Click);
-            // 
-            // toolStripLabel_Search
-            // 
-            this.toolStripLabel_Search.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripLabel_Search.Image = global::InsuranceClaims.Properties.Resources.Find_VS;
-            this.toolStripLabel_Search.Name = "toolStripLabel_Search";
-            this.toolStripLabel_Search.Size = new System.Drawing.Size(16, 22);
-            this.toolStripLabel_Search.Text = "toolStripLabel1";
-            // 
-            // toolStripButton_Exit
-            // 
-            this.toolStripButton_Exit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton_Exit.Image = global::InsuranceClaims.Properties.Resources.exit;
-            this.toolStripButton_Exit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Exit.Name = "toolStripButton_Exit";
-            this.toolStripButton_Exit.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripButton_Exit.Size = new System.Drawing.Size(67, 22);
-            this.toolStripButton_Exit.Text = "退出(&X)";
-            this.toolStripButton_Exit.Click += new System.EventHandler(this.toolStripButton_Exit_Click);
-            // 
-            // toolStripButton_InsuranceType
-            // 
-            this.toolStripButton_InsuranceType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton_InsuranceType.Image = global::InsuranceClaims.Properties.Resources.ViewThumbnailsHS;
-            this.toolStripButton_InsuranceType.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_InsuranceType.Name = "toolStripButton_InsuranceType";
-            this.toolStripButton_InsuranceType.Size = new System.Drawing.Size(67, 22);
-            this.toolStripButton_InsuranceType.Text = "险种(&T)";
-            this.toolStripButton_InsuranceType.Click += new System.EventHandler(this.toolStripButton_InsuranceType_Click);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripStatusLabel1.Image = global::InsuranceClaims.Properties.Resources.LayoutSelectRow;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(16, 16);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel_Location";
-            this.toolStripStatusLabel1.ToolTipText = "报单定位";
+            this.openFileDialog_ImportClaim.Filter = "Excel文件(*.xls)|*.xls";
+            this.openFileDialog_ImportClaim.RestoreDirectory = true;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 504);
+            this.ClientSize = new System.Drawing.Size(1079, 504);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip_Main);
             this.HelpButton = true;
@@ -433,9 +501,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_DeleteInsurance;
         private System.Windows.Forms.ToolStripButton toolStripButton_AddClaim;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_ListView;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Paste;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Import;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_EditClaim;
-        private System.Windows.Forms.ToolStripButton toolStripButton_InsuranceType;
         private System.Windows.Forms.ToolStripButton toolStripButton_Print;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator_Exit;
@@ -448,6 +515,15 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox_SearchContent;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripButton toolStripButton_ImportStaff;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_ImportStaff;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_InsuranceType;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Bank;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Hospital;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_CertType;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_ClaimType;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_ImportClaim;
         
         
     }
