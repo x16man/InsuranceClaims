@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("保险单理赔管理系统")]
-[assembly: AssemblyDescription("本程序在运行当中有任何的问题，或者您有任何好的建议，请以一下方式联系作者。\r\n\r\nMail:x16man@yahoo.com\r\nQQ:809585405,\r\nMSN:ezhanghao@hotmail.com    \r\n：）\r\n\r\n警告：本计算程序受著作权法和国际条约保护。如未经授权而擅自复制或传播本程序（或其中任何部分），将受到严厉的民事和刑事制裁，并将在法律许可的最大限度内受到起诉。")]
+[assembly: AssemblyDescription("本程序在运行当中有任何的问题，或者您有任何好的建议，请以以下方式联系作者。\r\n\r\nMail:zhanghao@shmzh.com\r\nQQ:809585405  \r\n：）\r\n\r\n警告：本计算程序受著作权法和国际条约保护。如未经授权而擅自复制或传播本程序（或其中任何部分），将受到严厉的民事和刑事制裁，并将在法律许可的最大限度内受到起诉。")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("x16man保留所有权限")]
+[assembly: AssemblyCompany("Shmzh保留所有权限")]
 [assembly: AssemblyProduct("保险单理赔管理系统")]
-[assembly: AssemblyCopyright("Copyright © x16man 2011")]
-[assembly: AssemblyTrademark("x16man")]
+[assembly: AssemblyCopyright("Copyright © Shmzh 2014")]
+[assembly: AssemblyTrademark("MzH")]
 [assembly: AssemblyCulture("")]
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", Watch = true)]
 
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // 可以指定所有这些值，也可以使用“内部版本号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]

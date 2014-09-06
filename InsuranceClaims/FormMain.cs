@@ -748,10 +748,10 @@ namespace InsuranceClaims
         private void toolStripMenuItem_DeleteCustomer_Click(object sender, EventArgs e)
         {
             var node = this.treeView_CustomerInsurance.SelectedNode;
-            if (node.Tag is CustomerInfo)
+            if (node.Tag is CustomerInfo && node.Text!="花名册")
             {
                 var customerInfo = node.Tag as CustomerInfo;
-                if (node.Nodes.Count > 0)
+                if (node.Nodes.Count > 1)
                 {
                     MessageBox.Show("该客户下尚存保单记录，不能删除！");
                 }
