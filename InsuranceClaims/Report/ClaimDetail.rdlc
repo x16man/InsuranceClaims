@@ -32,7 +32,7 @@
         <Style>
           <FontFamily>宋体</FontFamily>
         </Style>
-        <Left>0.75cm</Left>
+        <Left>1.5cm</Left>
         <Value>logo</Value>
       </Image>
     </ReportItems>
@@ -156,7 +156,7 @@ Where	ClaimId=?</CommandText>
     Next  
     Return M  
 End Function  </Code>
-  <Width>20.5cm</Width>
+  <Width>21.25cm</Width>
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
@@ -170,79 +170,6 @@ End Function  </Code>
               </GroupExpressions>
               <PageBreakAtEnd>true</PageBreakAtEnd>
             </Grouping>
-            <Header>
-              <TableRows>
-                <TableRow>
-                  <TableCells>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox83">
-                          <rd:DefaultName>textbox83</rd:DefaultName>
-                          <Style>
-                            <FontFamily>宋体</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox84">
-                          <rd:DefaultName>textbox84</rd:DefaultName>
-                          <Style>
-                            <FontFamily>宋体</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox92">
-                          <rd:DefaultName>textbox92</rd:DefaultName>
-                          <Style>
-                            <FontFamily>宋体</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                    <TableCell>
-                      <ReportItems>
-                        <Textbox Name="textbox93">
-                          <rd:DefaultName>textbox93</rd:DefaultName>
-                          <Style>
-                            <FontFamily>宋体</FontFamily>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                          <CanGrow>true</CanGrow>
-                          <Value />
-                        </Textbox>
-                      </ReportItems>
-                    </TableCell>
-                  </TableCells>
-                  <Height>0.25cm</Height>
-                </TableRow>
-              </TableRows>
-            </Header>
             <Footer>
               <TableRows>
                 <TableRow>
@@ -303,7 +230,7 @@ End Function  </Code>
             </Footer>
           </TableGroup>
         </TableGroups>
-        <Width>19cm</Width>
+        <Width>18.77645cm</Width>
         <Details>
           <TableRows>
             <TableRow>
@@ -314,6 +241,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox61</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -330,6 +258,7 @@ End Function  </Code>
                       <rd:DefaultName>CustomerName</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -347,6 +276,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox63</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -363,6 +293,7 @@ End Function  </Code>
                       <rd:DefaultName>InsuranceCode</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -375,7 +306,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.6cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -385,6 +316,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox78</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -401,6 +333,7 @@ End Function  </Code>
                       <rd:DefaultName>Name</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -418,6 +351,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox80</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -434,6 +368,7 @@ End Function  </Code>
                       <rd:DefaultName>Code</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -446,7 +381,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.6cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -456,6 +391,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox74</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -472,6 +408,7 @@ End Function  </Code>
                       <rd:DefaultName>CertTypeName</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -489,6 +426,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox76</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -505,6 +443,7 @@ End Function  </Code>
                       <rd:DefaultName>PersonId</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -517,7 +456,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.6cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -527,6 +466,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox70</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -543,6 +483,7 @@ End Function  </Code>
                       <rd:DefaultName>Company</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -550,7 +491,7 @@ End Function  </Code>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!Company.Value</Value>
+                      <Value>=Fields!Company.Value+"/"+Fields!Department.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -560,6 +501,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox72</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -576,6 +518,7 @@ End Function  </Code>
                       <rd:DefaultName>AccountName</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -588,7 +531,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.6cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -598,6 +541,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox65</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -614,6 +558,7 @@ End Function  </Code>
                       <rd:DefaultName>BankName_1</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -631,6 +576,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox67</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -647,6 +593,7 @@ End Function  </Code>
                       <rd:DefaultName>Account</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -659,7 +606,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.6cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -669,6 +616,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox44</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -685,6 +633,7 @@ End Function  </Code>
                       <rd:DefaultName>ClaimNo</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -702,6 +651,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox45</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -718,6 +668,7 @@ End Function  </Code>
                       <rd:DefaultName>ClaimDate</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <Format>yyyy-MM-dd</Format>
                         <TextAlign>Left</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -731,7 +682,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.6cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -811,6 +762,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox40</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -942,6 +894,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox9</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                       </Style>
                       <CanGrow>true</CanGrow>
                       <Value>医疗账单费用明细</Value>
@@ -1062,6 +1015,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox16</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Right</TextAlign>
                       </Style>
                       <CanGrow>true</CanGrow>
@@ -1104,6 +1058,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox20</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                       </Style>
                       <CanGrow>true</CanGrow>
                       <Value />
@@ -1116,6 +1071,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox21</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Right</TextAlign>
                       </Style>
                       <CanGrow>true</CanGrow>
@@ -1142,7 +1098,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox54</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
-                        <FontSize>16pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -1156,7 +1112,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>1cm</Height>
+              <Height>0.75cm</Height>
             </TableRow>
             <TableRow>
               <TableCells>
@@ -1167,6 +1123,7 @@ End Function  </Code>
                       <rd:DefaultName>textbox39</rd:DefaultName>
                       <Style>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1179,7 +1136,7 @@ End Function  </Code>
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.63492cm</Height>
+              <Height>0.63cm</Height>
             </TableRow>
           </TableRows>
           <RepeatOnNewPage>true</RepeatOnNewPage>
@@ -1189,16 +1146,16 @@ End Function  </Code>
             <Width>3.25cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>6.5cm</Width>
+            <Width>5.5cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>3cm</Width>
+            <Width>3.02646cm</Width>
           </TableColumn>
           <TableColumn>
-            <Width>6.25cm</Width>
+            <Width>7cm</Width>
           </TableColumn>
         </TableColumns>
-        <Height>12.79364cm</Height>
+        <Height>12.0792cm</Height>
         <Footer>
           <TableRows>
             <TableRow>
@@ -1281,7 +1238,7 @@ End Function  </Code>
             </TableRow>
           </TableRows>
         </Footer>
-        <Left>1cm</Left>
+        <Left>1.5cm</Left>
       </Table>
     </ReportItems>
     <Height>13.75cm</Height>

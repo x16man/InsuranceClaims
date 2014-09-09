@@ -25,3 +25,6 @@ D:\GIT\InsuranceClaims\InsuranceClaims\obj\x86\Release\InsuranceClaims.csproj.Ge
 D:\GIT\InsuranceClaims\InsuranceClaims\obj\x86\Release\RdlCompile.cache
 D:\GIT\InsuranceClaims\InsuranceClaims\obj\x86\Release\RdlCompile.compiled
 D:\GIT\InsuranceClaims\InsuranceClaims\obj\x86\Release\InsuranceClaims.exe
+D:\GIT\InsuranceClaims\InsuranceClaims\bin\x86\Release\Microsoft.ReportViewer.Common.dll
+D:\GIT\InsuranceClaims\InsuranceClaims\bin\x86\Release\Microsoft.ReportViewer.WinForms.dll
+D:\GIT\InsuranceClaims\InsuranceClaims\bin\x86\Release\Microsoft.ReportViewer.WinForms.xml

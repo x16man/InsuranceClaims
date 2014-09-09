@@ -226,6 +226,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -246,6 +247,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -266,6 +268,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <Format>yyyy/MM/dd</Format>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -287,6 +290,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <Format>N</Format>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -308,6 +312,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <Format>N</Format>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -329,6 +334,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -347,6 +353,7 @@ Where	ClaimId=? And
         </Details>
         <Style>
           <FontFamily>宋体</FontFamily>
+          <FontSize>9pt</FontSize>
         </Style>
         <Header>
           <TableRows>
@@ -361,6 +368,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -381,6 +389,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -401,6 +410,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -421,6 +431,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -441,6 +452,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -461,6 +473,7 @@ Where	ClaimId=? And
                           <Default>Solid</Default>
                         </BorderStyle>
                         <FontFamily>宋体</FontFamily>
+                        <FontSize>9pt</FontSize>
                         <TextAlign>Center</TextAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>

@@ -407,16 +407,16 @@ namespace InsuranceClaims
                 item.SubItems.Add(claimDetailInfo.InvoiceCount.ToString());
                 item.SubItems.Add(claimDetailInfo.HospitalName);
 
-                item.SubItems.Add(claimDetailInfo.ResponsibilityAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.QZFAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.BFZFAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.QTKCAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.YBZFAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.DSFZFAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.MPEAmount.ToString());
-                item.SubItems.Add(claimDetailInfo.PFRate.ToString());
+                item.SubItems.Add(claimDetailInfo.ResponsibilityAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.QZFAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.BFZFAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.QTKCAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.YBZFAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.DSFZFAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.MPEAmount.ToString("N2"));
+                item.SubItems.Add(claimDetailInfo.PFRate.ToString("N2"));
 
-                item.SubItems.Add(claimDetailInfo.ClaimAmount.ToString());
+                item.SubItems.Add(claimDetailInfo.ClaimAmount.ToString("N2"));
                 item.SubItems.Add(claimDetailInfo.ClaimNo);
                 item.SubItems.Add(claimDetailInfo.Remark);
 
@@ -1307,6 +1307,7 @@ namespace InsuranceClaims
                     //MessageBox.Show(objs.Count.ToString());
                     foreach (var obj in objs)
                     {
+                        Logger.Debug(string.Format("{0}:{1}",obj.BankId,obj.BankId.Length));
                         DataRepository.ClaimDetailProvider.Insert(obj);
                     }
                     //MessageBox.Show("Insert Finished");
